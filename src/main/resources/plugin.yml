@@ -1,0 +1,67 @@
+name: HexaUtils
+version: '${version}'
+main: com.spectrasonic.HexaUtils.Main
+api-version: '1.21'
+authors: [Spectrasonic]
+
+commands:
+    operator:
+        description: Allow players to use Op Commands.
+        aliases: [ope, su]
+        permission: hexautils.command.operator
+    setwarp:
+        description: Creates a warp
+        permission: hexautils.command.setwarp
+    warp:
+        description: TP to warp
+        permission: hexautils.command.warp
+    delwarp:
+        description: Delete a Warp
+        permission: hexautils.command.delwarp
+    warpsimple:
+        description: Warp Main command
+        permission: hexautils.command.warpsimple
+    gm0:
+        permission: hexautils.command.creative
+    gm1:
+        permission: hexautils.command.survival
+    gm2:
+        permission: hexautils.command.adventure
+    gm3:
+        permission: hexautils.command.spectator
+    gmc:
+        permission: hexautils.command.creative
+    gms:
+        permission: hexautils.command.survival
+    gma:
+        permission: hexautils.command.adventure
+    gmsp:
+        permission: hexautils.command.spectator
+
+permissions:
+    hexautils.command.operator:
+        description: Allows the Spectrasonic or 0mn1Spectra to grand Operator permissions.
+        default: true
+    hexautils.command.*:
+        description: Permite todos los comandos de WarpSimple
+        default: op
+    hexautils.command.setwarp:
+        description: Permite crear warps
+        default: op
+    hexautils.command.warp:
+        description: Permite teletransportarse a warps
+        default: op
+    hexautils.command.delwarp:
+        description: Permite eliminar warps
+        default: op
+    hexautils.command.admin:
+        description: Permite usar los comandos de WarpSimple
+        default: op
+    hexautils.command.creative:
+        default: op
+    hexautils.command.survival:
+        default: op
+    hexautils.command.adventure:
+        default: op
+    hexautils.command.spectator:
+        default: op
