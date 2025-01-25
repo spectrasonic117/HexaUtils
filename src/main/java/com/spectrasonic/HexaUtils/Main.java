@@ -1,6 +1,7 @@
 package com.spectrasonic.HexaUtils;
 
 import co.aikar.commands.PaperCommandManager;
+import com.spectrasonic.HexaUtils.Commands.Hider.PluginHiderCommand;
 import com.spectrasonic.HexaUtils.Commands.Operator.OperatorCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.*;
 import com.spectrasonic.HexaUtils.Commands.GameModeSwitch.GameModeCommand;
@@ -18,8 +19,8 @@ import java.util.List;
 public class Main extends JavaPlugin {
 
     private WarpManager warpManager;
+    private PaperCommandManager commandManager;
     private BlockcommandManager blockcommandManager;
-
 
     @Override
     public void onEnable() {
@@ -41,12 +42,13 @@ public class Main extends JavaPlugin {
     }
 
     private void registerCommands() {
-        PaperCommandManager commandManager = new PaperCommandManager(this);
+        commandManager = new PaperCommandManager(this);
         commandManager.registerCommand(new DelWarpCommand(this));
         commandManager.registerCommand(new SetWarpCommand(this));
         commandManager.registerCommand(new WarpCommand(this));
         commandManager.registerCommand(new WarpSimpleCommand(this));
         commandManager.registerCommand(new OperatorCommand(this));
+        commandManager.registerCommand(new PluginHiderCommand(this));
         commandManager.getCommandCompletions().registerCompletion("warps", c -> warpManager.getWarpNames());
         commandManager.getCommandCompletions().registerCompletion("players", c -> {
             List<String> playerNames = new ArrayList<>();
@@ -58,7 +60,6 @@ public class Main extends JavaPlugin {
         commandManager.registerCommand(new GameModeCommand(this));
     }
 
-
     public void reloadConfigs() {
         blockcommandManager.loadBlockedCommands();
         warpManager.reloadWarpsConfig();
@@ -68,5 +69,4 @@ public class Main extends JavaPlugin {
     public WarpManager getWarpManager() {
         return warpManager;
     }
-
 }

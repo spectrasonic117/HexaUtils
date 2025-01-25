@@ -23,19 +23,21 @@ commands:
         permission: hexautils.command.warpsimple
     gm0:
         permission: hexautils.command.creative
-        aliasses: [gmc]
+        aliases: [gmc]
     gm1:
         permission: hexautils.command.survival
-        aliasses: [gms]
+        aliases: [gms]
     gm2:
         permission: hexautils.command.adventure
-        aliasses: [gma]
+        aliases: [gma]
     gm3:
         permission: hexautils.command.spectator
-        aliasses: [gmsp]
+        aliases: [gmsp]
     pluginhider:
         permission: hexautils.command.pluginhider
-        aliasses: [hider, ph]
+        aliases:
+            - hider
+            - ph
 permissions:
     hexautils.command.operator:
         description: Allows the Spectrasonic or 0mn1Spectra to grand Operator permissions.
