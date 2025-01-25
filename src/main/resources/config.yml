@@ -9,3 +9,17 @@ example-warp:
   z: 0.0
   yaw: 0.0
   pitch: 0.0
+
+Blocked_Commands:
+  - "minecraft:plugins"
+  - "minecraft:pl"
+  - "plugins"
+  - "pl"
+  - "version"
+  - "minecraft:version"
+  - "ver"
+  - "minecraft:ver"
+  - "?"
+  - "help"
+  - "minecraft:help"
+  - "minecraft:?"

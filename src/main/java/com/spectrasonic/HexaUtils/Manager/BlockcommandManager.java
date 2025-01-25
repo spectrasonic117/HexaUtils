@@ -1,51 +1,32 @@
 package com.spectrasonic.HexaUtils.Manager;
 
 import com.spectrasonic.HexaUtils.Main;
-import org.bukkit.command.Command;
+import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-/**
- * Manages the blocked commands and provides utility methods for command handling.
- */
 public class BlockcommandManager {
     private final Main plugin;
-
-    private final Set<String> blockedCommands = Set.of(
-            "minecraft:plugins",
-            "minecraft:pl",
-            "plugins",
-            "pl",
-            "version",
-            "minecraft:version",
-            "ver",
-            "minecraft:ver",
-            "?",
-            "help",
-            "minecraft:help",
-            "minecraft:?"
-    );
+    private Set<String> blockedCommands;
 
     public BlockcommandManager(Main plugin) {
         this.plugin = plugin;
+        loadBlockedCommands();
     }
 
-    /**
-     * Gets the set of blocked commands.
-     *
-     * @return The set of blocked commands
-     */
+    public void loadBlockedCommands() {
+        FileConfiguration config = plugin.getConfig();
+        List<String> blockedCommandsList = config.getStringList("Blocked_Commands");
+        blockedCommands = new HashSet<>(blockedCommandsList);
+    }
+
     public Set<String> getBlockedCommands() {
         return blockedCommands;
     }
 
-    /**
-     * Checks if a command should be blocked.
-     *
-     * @param command The command to check
-     * @return true if the command should be blocked
-     */
-    public boolean isBlockedCommand(Command command) {
-        return blockedCommands.contains(command.getName().toLowerCase());
+    public boolean isBlockedCommand(String command) {
+        return blockedCommands.contains(command.toLowerCase());
     }
 }

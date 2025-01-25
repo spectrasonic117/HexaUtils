@@ -18,7 +18,6 @@ import java.util.List;
 public class Main extends JavaPlugin {
 
     private WarpManager warpManager;
-    private PaperCommandManager commandManager;
     private BlockcommandManager blockcommandManager;
 
 
@@ -42,7 +41,7 @@ public class Main extends JavaPlugin {
     }
 
     private void registerCommands() {
-        commandManager = new PaperCommandManager(this);
+        PaperCommandManager commandManager = new PaperCommandManager(this);
         commandManager.registerCommand(new DelWarpCommand(this));
         commandManager.registerCommand(new SetWarpCommand(this));
         commandManager.registerCommand(new WarpCommand(this));
@@ -61,6 +60,7 @@ public class Main extends JavaPlugin {
 
 
     public void reloadConfigs() {
+        blockcommandManager.loadBlockedCommands();
         warpManager.reloadWarpsConfig();
         reloadConfig();
     }
