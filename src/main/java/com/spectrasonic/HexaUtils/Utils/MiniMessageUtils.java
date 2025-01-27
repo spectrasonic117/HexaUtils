@@ -24,6 +24,9 @@ public class MiniMessageUtils {
     public static void sendMessage(CommandSender sender, String message, String warpName, String arg) {
         sender.sendMessage(miniMessage.deserialize(PREFIX + message));
     }
+    public static void sendSingleMessage(CommandSender sender, String message, String arg) {
+        sender.sendMessage(miniMessage.deserialize(PREFIX + message));
+    }
 
     public static void sendConsoleMessage(String message) {
         Bukkit.getConsoleSender().sendMessage(miniMessage.deserialize(PREFIX + message));

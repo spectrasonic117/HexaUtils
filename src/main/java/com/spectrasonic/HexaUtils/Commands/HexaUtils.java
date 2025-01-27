@@ -35,9 +35,9 @@ public class HexaUtils extends BaseCommand {
             SoundUtils.playerSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 1.0f);
         }
         
-        MiniMessageUtils.sendMessage(sender, "version", "<gray>Version: <light_purple>%s".formatted(plugin.getDescription().getVersion()), null);
-        MiniMessageUtils.sendMessage(sender, "authors", "<gray>Developed by: <red>%s".formatted(plugin.getDescription().getAuthors()), null);
-        MiniMessageUtils.sendMessage(sender, "studio", "<gray>A Plugin for <color:#EF3341><bold>Hexa Creators</bold>", null);
+        MiniMessageUtils.sendSingleMessage(sender, "<gray>Version: <light_purple>%s".formatted(plugin.getDescription().getVersion()), null);
+        MiniMessageUtils.sendSingleMessage(sender, "<gray>Developed by: <red>%s".formatted(plugin.getDescription().getAuthors()), null);
+        MiniMessageUtils.sendSingleMessage(sender,"<gray>A Plugin for <color:#EF3341><bold>Hexa Creators</bold>", null);
     }
 
     private void sendHelpMessage(CommandSender sender) {
@@ -60,7 +60,7 @@ public class HexaUtils extends BaseCommand {
         };
 
         for (String message : helpMessages) {
-            MiniMessageUtils.sendMessage(sender, "help", message, null);
+            MiniMessageUtils.sendSingleMessage(sender, message, null);
         }
     }
 }
