@@ -1,0 +1,25 @@
+allowed-players:
+  - Spectrasonic
+  - 0mn1spectra
+
+example-warp:
+  world: world
+  x: 0.0
+  y: 64.0
+  z: 0.0
+  yaw: 0.0
+  pitch: 0.0
+
+Blocked_Commands:
+  - "minecraft:plugins"
+  - "minecraft:pl"
+  - "plugins"
+  - "pl"
+  - "version"
+  - "minecraft:version"
+  - "ver"
+  - "minecraft:ver"
+  - "?"
+  - "help"
+  - "minecraft:help"
+  - "minecraft:?"

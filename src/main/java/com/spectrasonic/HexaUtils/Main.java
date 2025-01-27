@@ -1,6 +1,7 @@
 package com.spectrasonic.HexaUtils;
 
 import co.aikar.commands.PaperCommandManager;
+import com.spectrasonic.HexaUtils.Commands.HexaUtils;
 import com.spectrasonic.HexaUtils.Commands.Hider.PluginHiderCommand;
 import com.spectrasonic.HexaUtils.Commands.Operator.OperatorCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.*;
@@ -28,6 +29,7 @@ public class Main extends JavaPlugin {
         initializeManagers();
         registerCommands();
         MiniMessageUtils.sendStartupMessage(this);
+        MiniMessageUtils.sendVeiMessage(this);
     }
 
     @Override
@@ -58,6 +60,7 @@ public class Main extends JavaPlugin {
             return playerNames;
         });
         commandManager.registerCommand(new GameModeCommand(this));
+        commandManager.registerCommand(new HexaUtils(this));
     }
 
     public void reloadConfigs() {
