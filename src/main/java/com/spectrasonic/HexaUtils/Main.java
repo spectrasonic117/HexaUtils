@@ -48,7 +48,7 @@ public class Main extends JavaPlugin {
         commandManager.registerCommand(new DelWarpCommand(this));
         commandManager.registerCommand(new SetWarpCommand(this));
         commandManager.registerCommand(new WarpCommand(this));
-        commandManager.registerCommand(new WarpSimpleCommand(this));
+        commandManager.registerCommand(new WarpSystem(this));
         commandManager.registerCommand(new OperatorCommand(this));
         commandManager.registerCommand(new PluginHiderCommand(this));
         commandManager.getCommandCompletions().registerCompletion("warps", c -> warpManager.getWarpNames());

@@ -9,25 +9,25 @@ import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class WarpSimpleCommand extends BaseCommand {
+public class WarpSystem extends BaseCommand {
 
     private final Main plugin;
 
-    public WarpSimpleCommand(Main plugin) {
+    public WarpSystem(Main plugin) {
         this.plugin = plugin;
     }
 
-    @Subcommand("hiderRreload")
-    @CommandAlias("warpsimple")
+    @CommandAlias("warpsystem|ws")
+    @Subcommand("reload")
     @CommandPermission("hexautils.command.warpsimple.hiderRreload")
     public void onReloadCommand(CommandSender sender) {
                 plugin.reloadConfigs();
-        MiniMessageUtils.sendMessage((Player) sender, "<green>Configurations reloaded!");
+        MiniMessageUtils.sendMessage((Player) sender, "<green>Warp Config reloaded!");
             }
 
     @Subcommand("help")
     @CommandAlias("warpsimple")
     public void onHelpCommand(CommandSender sender) {
-        MiniMessageUtils.sendMessage((Player) sender, "<yellow>Usage: /warpsimple hiderRreload");
+        MiniMessageUtils.sendMessage((Player) sender, "<yellow>Usage: /warpsimple");
     }
 }

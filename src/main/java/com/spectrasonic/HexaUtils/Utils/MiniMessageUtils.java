@@ -17,14 +17,11 @@ public class MiniMessageUtils {
         player.sendMessage(miniMessage.deserialize(PREFIX + s));
     }
 
-    private void MessageUtils() {
+    private MiniMessageUtils() {
         // Private constructor to prevent instantiation
     }
 
     public static void sendMessage(CommandSender sender, String message, String warpName, String arg) {
-        sender.sendMessage(miniMessage.deserialize(PREFIX + message));
-    }
-    public static void sendSingleMessage(CommandSender sender, String message, String arg) {
         sender.sendMessage(miniMessage.deserialize(PREFIX + message));
     }
 

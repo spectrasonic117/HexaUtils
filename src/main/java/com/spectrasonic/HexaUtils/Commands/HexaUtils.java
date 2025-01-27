@@ -35,14 +35,14 @@ public class HexaUtils extends BaseCommand {
             SoundUtils.playerSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 1.0f);
         }
         
-        MiniMessageUtils.sendSingleMessage(sender, "<gray>Version: <light_purple>%s".formatted(plugin.getDescription().getVersion()), null);
-        MiniMessageUtils.sendSingleMessage(sender, "<gray>Developed by: <red>%s".formatted(plugin.getDescription().getAuthors()), null);
-        MiniMessageUtils.sendSingleMessage(sender,"<gray>A Plugin for <color:#EF3341><bold>Hexa Creators</bold>", null);
+        MiniMessageUtils.sendMessage((Player)sender, "<gray>Version: <light_purple>%s".formatted(plugin.getDescription().getVersion()));
+        MiniMessageUtils.sendMessage((Player)sender, "<gray>Developed by: <red>%s".formatted(plugin.getDescription().getAuthors()));
+        MiniMessageUtils.sendMessage((Player)sender,"<gray>A Plugin for <color:#EF3341><bold>Hexa Creators</bold>");
     }
 
     private void sendHelpMessage(CommandSender sender) {
         String[] helpMessages = {
-                "<gray>=== <green>HexaUtils <gold>Help <gray>===</gray>",
+                "<gray>=== <color:#EF3341><bold>HexaUtils <gold>Help <gray>===</gray>",
                 "<gray>=== <gold>Available Commands <gray>===",
                 "",
                 "<green>/hexautils</green> - Main command",
@@ -60,7 +60,7 @@ public class HexaUtils extends BaseCommand {
         };
 
         for (String message : helpMessages) {
-            MiniMessageUtils.sendSingleMessage(sender, message, null);
+            MiniMessageUtils.sendMessage((Player)sender, message);
         }
     }
 }

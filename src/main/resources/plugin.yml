@@ -22,9 +22,10 @@ commands:
     delwarp:
         description: Delete a Warp
         permission: hexautils.command.delwarp
-    warpsimple:
+    warpsystem:
         description: Warp Main command
         permission: hexautils.command.warpsimple
+        aliases: [ws, warps]
     gm0:
         permission: hexautils.command.creative
         aliases: [gmc]
@@ -39,9 +40,7 @@ commands:
         aliases: [gmsp]
     pluginhider:
         permission: hexautils.command.pluginhider
-        aliases:
-            - hider
-            - ph
+        aliases: [hider, ph]
 permissions:
     hexautils.command.operator:
         description: Allows the Spectrasonic or 0mn1Spectra to grand Operator permissions.
