@@ -1,15 +1,21 @@
 package com.spectrasonic.HexaUtils;
 
 import co.aikar.commands.PaperCommandManager;
+
 import com.spectrasonic.HexaUtils.Commands.HexaUtils;
 import com.spectrasonic.HexaUtils.Commands.Hider.PluginHiderCommand;
 import com.spectrasonic.HexaUtils.Commands.Operator.OperatorCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.*;
 import com.spectrasonic.HexaUtils.Commands.GameModeSwitch.GameModeCommand;
+import com.spectrasonic.HexaUtils.Commands.NightVision.NightVisionCommand;
+
 import com.spectrasonic.HexaUtils.Manager.WarpManager;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
-import com.spectrasonic.HexaUtils.Events.CommandListener;
 import com.spectrasonic.HexaUtils.Manager.BlockcommandManager;
+
+import com.spectrasonic.HexaUtils.Events.CommandListener;
+
+import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -45,6 +51,7 @@ public class Main extends JavaPlugin {
 
     private void registerCommands() {
         commandManager = new PaperCommandManager(this);
+        commandManager.registerCommand(new HexaUtils(this));
         commandManager.registerCommand(new DelWarpCommand(this));
         commandManager.registerCommand(new SetWarpCommand(this));
         commandManager.registerCommand(new WarpCommand(this));
@@ -60,7 +67,8 @@ public class Main extends JavaPlugin {
             return playerNames;
         });
         commandManager.registerCommand(new GameModeCommand(this));
-        commandManager.registerCommand(new HexaUtils(this));
+        commandManager.registerCommand(new NightVisionCommand(this));
+        
     }
 
     public void reloadConfigs() {

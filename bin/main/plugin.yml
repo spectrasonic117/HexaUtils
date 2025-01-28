@@ -41,6 +41,10 @@ commands:
     pluginhider:
         permission: hexautils.command.pluginhider
         aliases: [hider, ph]
+    nightvision:
+        permission: hexautils.command.nightvision
+        aliases: [nv]
+
 permissions:
     hexautils.command.operator:
         description: Allows the Spectrasonic or 0mn1Spectra to grand Operator permissions.
@@ -71,4 +75,6 @@ permissions:
     hexautils.command.pluginhider:
         default: op
     hexautils.command.hexautils:
+        default: op
+    hexautils.command.nightvision:
         default: op
