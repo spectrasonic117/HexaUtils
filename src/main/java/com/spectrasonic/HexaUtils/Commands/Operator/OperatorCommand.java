@@ -2,6 +2,7 @@ package com.spectrasonic.HexaUtils.Commands.Operator;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Subcommand;
@@ -38,7 +39,8 @@ public class OperatorCommand extends BaseCommand {
         }
     }
 
-    @Subcommand("hiderRreload")
+    @Subcommand("reload")
+    @CommandCompletion("reload")
     @CommandPermission("hexautils.command.operator")
     public void onReloadCommand(CommandSender sender) {
         plugin.reloadConfig();
