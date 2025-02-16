@@ -9,7 +9,7 @@ version = '21.7.2'
 repositories {
     mavenCentral()
     maven {
-        name = "papermc-repo"…
+        name = "papermc-repo"
         url = "https://repo.papermc.io/repository/maven-public/"
     }
     maven {
