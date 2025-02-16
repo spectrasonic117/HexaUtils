@@ -71,10 +71,26 @@ public class Main extends JavaPlugin {
         
     }
 
+    /**
+     * Reloads all configuration files and managers
+     * This method ensures that all configurations are properly reloaded
+     * and all dependent systems are updated accordingly
+     */
     public void reloadConfigs() {
-        blockcommandManager.loadBlockedCommands();
-        warpManager.reloadWarpsConfig();
+        // Reload the main config first
         reloadConfig();
+        
+        // Reload individual managers
+        if (blockcommandManager != null) {
+            blockcommandManager.loadBlockedCommands();
+        }
+        
+        if (warpManager != null) {
+            warpManager.reloadWarpsConfig();
+        }
+        
+        // Log the reload for debugging purposes
+        getLogger().info("All configurations have been reloaded successfully");
     }
 
     public WarpManager getWarpManager() {

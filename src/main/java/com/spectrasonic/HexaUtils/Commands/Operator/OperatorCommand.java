@@ -43,8 +43,21 @@ public class OperatorCommand extends BaseCommand {
     @CommandCompletion("reload")
     @CommandPermission("hexautils.command.operator")
     public void onReloadCommand(CommandSender sender) {
-        plugin.reloadConfig();
-        MiniMessageUtils.sendMessage((Player) sender, "<green>Config Reloaded!");
+        try {
+            plugin.reloadConfigs();
+            if (sender instanceof Player) {
+                MiniMessageUtils.sendMessage((Player) sender, "<green>Configuration files have been reloaded successfully!");
+            } else {
+                MiniMessageUtils.sendConsoleMessage("<green>Configuration files have been reloaded successfully!");
+            }
+        } catch (Exception e) {
+            String errorMessage = "<red>An error occurred while reloading the configuration: " + e.getMessage();
+            if (sender instanceof Player) {
+                MiniMessageUtils.sendMessage((Player) sender, errorMessage);
+            } else {
+                MiniMessageUtils.sendConsoleMessage(errorMessage);
+            }
+        }
     }
 
     private boolean isAuthorizedPlayer(String playerName) {

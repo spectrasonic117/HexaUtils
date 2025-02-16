@@ -1,0 +1,25 @@
+{
+    "tasks": [
+        {
+            "type": "gradle",
+            "id": "/Users/spectra/Documents/IntelliJ/HexaUtilsbuildHexaUtils",
+            "script": "build",
+            "description": "Assembles and tests this project.",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "project": "HexaUtils",
+            "buildFile": "/Users/spectra/Documents/IntelliJ/HexaUtils/build.gradle",
+            "rootProject": "HexaUtils",
+            "projectFolder": "/Users/spectra/Documents/IntelliJ/HexaUtils",
+            "workspaceFolder": "/Users/spectra/Documents/IntelliJ/HexaUtils",
+            "args": "",
+            "javaDebug": false,
+            "problemMatcher": [
+                "$gradle"
+            ],
+            "label": "gradle: build"
+        }
+    ]
+}
