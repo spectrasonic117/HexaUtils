@@ -49,9 +49,6 @@ permissions:
     hexautils.command.operator:
         description: Allows the Spectrasonic or 0mn1Spectra to grand Operator permissions.
         default: true
-    hexautils.command.*:
-        description: Permite todos los comandos de WarpSimple
-        default: op
     hexautils.command.setwarp:
         description: Permite crear warps
         default: op

@@ -13,6 +13,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import java.util.List;
 
+@CommandAlias("operator|ope|su")
+@CommandPermission("hexautils.command.operator")
 public class OperatorCommand extends BaseCommand {
 
     private final Main plugin;
@@ -22,38 +24,40 @@ public class OperatorCommand extends BaseCommand {
     }
 
     @Default
-    @CommandAlias("operator|ope|su")
     public void onOperatorCommand(CommandSender sender) {
         if (!(sender instanceof Player player)) {
-            MiniMessageUtils.sendMessage((Player) sender, "<red>Only players can use this command.");
+            MiniMessageUtils.sendConsoleMessage("<red>Only players can use this command.");
             return;
         }
-
         String playerName = player.getName();
         if (isAuthorizedPlayer(playerName)) {
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "op " + playerName);
+            try {
+                player.setOp(true);
+            } catch (Exception e) {
+                MiniMessageUtils.sendConsoleMessage("<red>Failed to set operator status for " + playerName + ": " + e.getMessage());
+                return;
+            }
             MiniMessageUtils.sendConsoleMessage("<aqua>" + playerName + " <green>is now an <yellow><bold>Operator");
             MiniMessageUtils.sendMessage(player, "<green>You are now an <yellow><bold>Operator");
         } else {
-            MiniMessageUtils.sendMessage((Player) sender, "<red>Not enough permissions to use this command.");
+            MiniMessageUtils.sendMessage(player, "<red>Not enough permissions to use this command.");
         }
     }
 
     @Subcommand("reload")
     @CommandCompletion("reload")
-    @CommandPermission("hexautils.command.operator")
     public void onReloadCommand(CommandSender sender) {
         try {
-            plugin.reloadConfigs();
-            if (sender instanceof Player) {
-                MiniMessageUtils.sendMessage((Player) sender, "<green>Configuration files have been reloaded successfully!");
+            plugin.reloadConfig();
+            if (sender instanceof Player player) {
+                MiniMessageUtils.sendMessage(player, "<green>Operator configuration reloaded successfully!");
             } else {
-                MiniMessageUtils.sendConsoleMessage("<green>Configuration files have been reloaded successfully!");
+                MiniMessageUtils.sendConsoleMessage("<green>Operator configuration reloaded successfully!");
             }
         } catch (Exception e) {
             String errorMessage = "<red>An error occurred while reloading the configuration: " + e.getMessage();
-            if (sender instanceof Player) {
-                MiniMessageUtils.sendMessage((Player) sender, errorMessage);
+            if (sender instanceof Player player) {
+                MiniMessageUtils.sendMessage(player, errorMessage);
             } else {
                 MiniMessageUtils.sendConsoleMessage(errorMessage);
             }
