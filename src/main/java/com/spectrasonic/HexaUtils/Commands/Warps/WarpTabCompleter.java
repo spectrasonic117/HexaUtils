@@ -7,19 +7,17 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 public class WarpTabCompleter implements TabCompleter {
 
     private final Main plugin;
-
-    public WarpTabCompleter(Main plugin) {
-        this.plugin = plugin;
-    }
 
     @Override
     @Nullable

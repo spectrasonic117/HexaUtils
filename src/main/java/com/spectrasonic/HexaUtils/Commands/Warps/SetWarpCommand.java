@@ -9,13 +9,12 @@ import com.spectrasonic.HexaUtils.Main;
 import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import lombok.RequiredArgsConstructor;
 
+
+@RequiredArgsConstructor
 public class SetWarpCommand extends BaseCommand {
     private final Main plugin;
-
-    public SetWarpCommand(Main plugin) {
-        this.plugin = plugin;
-    }
 
     @Default
     @CommandAlias("setwarp")

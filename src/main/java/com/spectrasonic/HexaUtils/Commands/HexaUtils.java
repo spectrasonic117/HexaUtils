@@ -8,15 +8,14 @@ import com.spectrasonic.HexaUtils.Utils.SoundUtils;
 import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import lombok.RequiredArgsConstructor;
+
 
 @CommandAlias("hexautils|hu")
+@RequiredArgsConstructor
 public class HexaUtils extends BaseCommand {
 
     private final Main plugin;
-
-    public HexaUtils(Main plugin) {
-        this.plugin = plugin;
-    }
 
     @Default
     @Subcommand("help")

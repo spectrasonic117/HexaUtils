@@ -8,14 +8,12 @@ import com.spectrasonic.HexaUtils.Main;
 import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class WarpSystem extends BaseCommand {
 
     private final Main plugin;
-
-    public WarpSystem(Main plugin) {
-        this.plugin = plugin;
-    }
 
     @CommandAlias("warpsystem|ws")
     @Subcommand("reload")

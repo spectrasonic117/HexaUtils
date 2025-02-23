@@ -22,7 +22,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
+@Getter
 public class Main extends JavaPlugin {
 
     private WarpManager warpManager;
@@ -75,9 +77,5 @@ public class Main extends JavaPlugin {
         blockcommandManager.loadBlockedCommands();
         warpManager.reloadWarpsConfig();
         reloadConfig();
-    }
-
-    public WarpManager getWarpManager() {
-        return warpManager;
     }
 }

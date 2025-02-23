@@ -11,16 +11,15 @@ import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @CommandAlias("operator|ope|su")
 @CommandPermission("hexautils.operator")
+@RequiredArgsConstructor
+
 public class OperatorCommand extends BaseCommand {
 
     private final Main plugin;
-
-    public OperatorCommand(Main plugin) {
-        this.plugin = plugin;
-    }
 
     @Default
     public void onOperatorCommand(CommandSender sender) {

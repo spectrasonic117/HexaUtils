@@ -8,13 +8,12 @@ import co.aikar.commands.annotation.Default;
 import com.spectrasonic.HexaUtils.Main;
 import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
 import org.bukkit.entity.Player;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class DelWarpCommand extends BaseCommand {
     private final Main plugin;
 
-    public DelWarpCommand(Main plugin) {
-        this.plugin = plugin;
-    }
 
     @Default
     @CommandAlias("delwarp")

@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.spectrasonic'
-version = '21.7.3'
+version = '21.7.4'
 
 repositories {
     mavenCentral()
@@ -30,7 +30,8 @@ dependencies {
 
     // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.36'
-
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    
     // Minimessage - Adventure
     implementation "net.kyori:adventure-text-minimessage:4.18.0"
     implementation "net.kyori:adventure-api:4.18.0"
