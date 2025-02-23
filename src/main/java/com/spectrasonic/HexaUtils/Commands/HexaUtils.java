@@ -20,6 +20,7 @@ public class HexaUtils extends BaseCommand {
 
     @Default
     @Subcommand("help")
+    @CommandPermission("hexautils.hexautils")
     @Description("Shows the help menu")
     public void onHelp(CommandSender sender) {
         if (sender instanceof Player player) {

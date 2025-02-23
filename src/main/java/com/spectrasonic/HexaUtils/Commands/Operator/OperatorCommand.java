@@ -8,13 +8,12 @@ import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Subcommand;
 import com.spectrasonic.HexaUtils.Main;
 import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import java.util.List;
 
 @CommandAlias("operator|ope|su")
-@CommandPermission("hexautils.command.operator")
+@CommandPermission("hexautils.operator")
 public class OperatorCommand extends BaseCommand {
 
     private final Main plugin;

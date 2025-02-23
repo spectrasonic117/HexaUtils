@@ -8,73 +8,70 @@ commands:
     hexautils:
         description: Allow players to see all Comamnds.
         aliases: [hu]
-        permission: hexautils.command.hexautils
+        permission: hexautils.hexautils
     operator:
         description: Allow players to use Op Commands.
         aliases: [ope, su]
-        permission: hexautils.command.operator
+        permission: hexautils.operator
     setwarp:
         description: Creates a warp
-        permission: hexautils.command.setwarp
+        permission: hexautils.warpsystem.setwarp
     warp:
         description: TP to warp
-        permission: hexautils.command.warp
+        permission: hexautils.warpsystem.warp
     delwarp:
         description: Delete a Warp
-        permission: hexautils.command.delwarp
+        permission: hexautils.warpsystem.delwarp
     warpsystem:
         description: Warp Main command
-        permission: hexautils.command.warpsimple
+        permission: hexautils.warpsystem
         aliases: [ws, warps]
     gm0:
-        permission: hexautils.command.creative
+        permission: hexautils.gamemode.creative
         aliases: [gmc]
     gm1:
-        permission: hexautils.command.survival
+        permission: hexautils.gamemode.survival
         aliases: [gms]
     gm2:
-        permission: hexautils.command.adventure
+        permission: hexautils.gamemode.adventure
         aliases: [gma]
     gm3:
-        permission: hexautils.command.spectator
+        permission: hexautils.gamemode.spectator
         aliases: [gmsp]
     pluginhider:
-        permission: hexautils.command.pluginhider
+        permission: hexautils.gamemode.pluginhider
         aliases: [hider, ph]
     nightvision:
         permission: hexautils.command.nightvision
         aliases: [nv]
 
 permissions:
-    hexautils.command.operator:
-        description: Allows the Spectrasonic or 0mn1Spectra to grand Operator permissions.
+    hexautils.hexautils:
+        default: op
+    hexautils.operator:
+        description: Allows the Hexa team grant Op permissions.
         default: true
-    hexautils.command.*:
-        description: Permite todos los comandos de WarpSimple
+    hexautils.warpsystem:
+        children:
+            hexautils.warp.warp:
+                default: op
+            hexautils.warp.setwarp:
+                default: op
+            hexautils.warp.delwarp:
+                default: op
         default: op
-    hexautils.command.setwarp:
-        description: Permite crear warps
+    hexautils.gamemode:
+        children:
+            hexautils.gamemode.creative:
+                default: op
+            hexautils.gamemode.survival:
+                default: op
+            hexautils.gamemode.adventure:
+                default: op
+            hexautils.gamemode.spectator:
+                default: op
         default: op
-    hexautils.command.warp:
-        description: Permite teletransportarse a warps
+    hexautils.pluginhider:
         default: op
-    hexautils.command.delwarp:
-        description: Permite eliminar warps
-        default: op
-    hexautils.command.admin:
-        description: Permite usar los comandos de WarpSimple
-        default: op
-    hexautils.command.creative:
-        default: op
-    hexautils.command.survival:
-        default: op
-    hexautils.command.adventure:
-        default: op
-    hexautils.command.spectator:
-        default: op
-    hexautils.command.pluginhider:
-        default: op
-    hexautils.command.hexautils:
-        default: op
-    hexautils.command.nightvision:
+    hexautils.nightvision:
         default: op

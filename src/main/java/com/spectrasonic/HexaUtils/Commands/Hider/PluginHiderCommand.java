@@ -11,7 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("pluginhider|hider|ph")
-@CommandPermission("hexautils.command.pluginhider")
+@CommandPermission("hexautils.pluginhider")
 public class PluginHiderCommand extends BaseCommand {
 
     private final Main plugin;

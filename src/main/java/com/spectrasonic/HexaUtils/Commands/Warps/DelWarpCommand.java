@@ -18,7 +18,7 @@ public class DelWarpCommand extends BaseCommand {
 
     @Default
     @CommandAlias("delwarp")
-    @CommandPermission("hexautils.command.delwarp")
+    @CommandPermission("hexautils.warpsystem.delwarp")
     @CommandCompletion("@warps")
     public void onDelWarpCommand(Player player, String[] args) {
             if (args.length == 1) {

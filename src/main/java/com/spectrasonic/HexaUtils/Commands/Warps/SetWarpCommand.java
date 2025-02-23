@@ -19,7 +19,7 @@ public class SetWarpCommand extends BaseCommand {
 
     @Default
     @CommandAlias("setwarp")
-    @CommandPermission("hexautils.command.setwarp")
+    @CommandPermission("hexautils.warpsystem.setwarp")
     @CommandCompletion("@warps")
     public void onSetWarpCommand(Player player, String[] args) {
             if (args.length == 1) {

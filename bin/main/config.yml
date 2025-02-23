@@ -1,0 +1,38 @@
+# Configuration for the plugin
+
+allowed-players:
+    - Spectrasonic
+    - 0mn1spectra
+    - MariaSantana_
+    - GGARNETS
+    - PerroVelazquez
+    - JaziIsai
+    - TheNazer
+    - Goottsy
+    - Makira27
+    - JarpPlay
+    - ImRadiGamer
+    - AlexToolS
+
+Blocked_Commands:
+    - "minecraft:plugins"
+    - "minecraft:pl"
+    - "minecraft:version"
+    - "minecraft:ver"
+    - "minecraft:help"
+    - "minecraft:?"
+    - "plugins"
+    - "pl"
+    - "version"
+    - "ver"
+    - "?"
+    - "help"
+
+# Example warps for testing
+example-warp:
+    world: world
+    x: 0.0
+    y: 64.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0

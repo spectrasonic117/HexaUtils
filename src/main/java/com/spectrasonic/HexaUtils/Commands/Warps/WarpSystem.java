@@ -19,7 +19,7 @@ public class WarpSystem extends BaseCommand {
 
     @CommandAlias("warpsystem|ws")
     @Subcommand("reload")
-    @CommandPermission("hexautils.command.warpsimple.hiderRreload")
+    @CommandPermission("hexautils.warpsystem")
     public void onReloadCommand(CommandSender sender) {
                 plugin.reloadConfigs();
         MiniMessageUtils.sendMessage((Player) sender, "<green>Warp Config reloaded!");

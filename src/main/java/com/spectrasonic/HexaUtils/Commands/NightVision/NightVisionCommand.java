@@ -18,7 +18,7 @@ public class NightVisionCommand extends BaseCommand {
     }
     
     @Default
-    @CommandPermission("eventhor.nightvision")
+    @CommandPermission("hexautils.nightvision")
     @Description("Toggle night vision effect")
     public void onNightVision(Player player) {
         NightVisionManager.toggleNightVision(player);
