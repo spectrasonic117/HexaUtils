@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.spectrasonic'
-version = '21.8.1'
+version = '21.8.2'
 
 repositories {
     mavenCentral()
@@ -39,8 +39,8 @@ dependencies {
 }
 
 shadowJar {
-    relocate 'co.aikar.commands', 'com.spectrasonic.PluginName.acf'
-    relocate 'co.aikar.locales', 'com.spectrasonic.PluginName.locales'
+    relocate 'co.aikar.commands', 'com.spectrasonic.HexaUtils.acf'
+    relocate 'co.aikar.locales', 'com.spectrasonic.HexaUtils.locales'
 }
 
 build.dependsOn shadowJar
