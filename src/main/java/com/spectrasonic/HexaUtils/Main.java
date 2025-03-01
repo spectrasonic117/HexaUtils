@@ -8,6 +8,7 @@ import com.spectrasonic.HexaUtils.Commands.Operator.OperatorCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.*;
 import com.spectrasonic.HexaUtils.Commands.GameModeSwitch.GameModeCommand;
 import com.spectrasonic.HexaUtils.Commands.NightVision.NightVisionCommand;
+import com.spectrasonic.HexaUtils.Commands.FirstSpawn.FirstSpawn;
 
 import com.spectrasonic.HexaUtils.Manager.WarpManager;
 import com.spectrasonic.HexaUtils.Manager.BlockcommandManager;
@@ -28,12 +29,14 @@ public class Main extends JavaPlugin {
     private WarpManager warpManager;
     private PaperCommandManager commandManager;
     private BlockcommandManager blockcommandManager;
+    private FirstSpawn firstSpawnCommand;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
         initializeManagers();
         registerCommands();
+        registerEvents();
         MiniMessageUtils.sendStartupMessage(this);
         MiniMessageUtils.sendVeiMessage(this);
     }
@@ -68,7 +71,12 @@ public class Main extends JavaPlugin {
         });
         commandManager.registerCommand(new GameModeCommand(this));
         commandManager.registerCommand(new NightVisionCommand(this));
+        commandManager.registerCommand(new FirstSpawn(this));
         
+    }
+
+    private void registerEvents() {
+        getServer().getPluginManager().registerEvents(firstSpawnCommand, this);
     }
 
     public void reloadConfigs() {

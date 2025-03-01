@@ -44,6 +44,9 @@ commands:
     nightvision:
         permission: hexautils.command.nightvision
         aliases: [nv]
+    firstspawn:
+        permission: hexautils.firstspawn
+        aliases: [fs]
 
 permissions:
     hexautils.hexautils:
@@ -74,4 +77,19 @@ permissions:
     hexautils.pluginhider:
         default: op
     hexautils.nightvision:
+        default: op
+    hexautils.firstspawn:
+        children:
+            hexautils.firstspawn.set:
+                default: op
+            hexautils.firstspawn.status:
+                default: op
+            hexautils.firstspawn.test:
+                default: op
+            hexautils.firstspawn.toggle:
+                default: op
+            hexautils.firstspawn.reload:
+                default: op
+            hexautils.firstspawn.debug:
+                default: op
         default: op

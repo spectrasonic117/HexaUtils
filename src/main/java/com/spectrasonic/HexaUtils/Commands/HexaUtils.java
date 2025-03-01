@@ -56,6 +56,7 @@ public class HexaUtils extends BaseCommand {
                 "<green>/gm3</green> or <green>/gmsp</green> - Spectator mode",
                 "<green>/pluginhider</green> - Manage plugin visibility",
                 "<green>/nv</green> - Toggle night vision effect",
+                "<green>/fs</green> - Manage first spawn location",
                 "",
                 "<gray>=== <red>Note <gray>===",
                 "Use <green>/hexautils help</green> <gray>to see this menu."
