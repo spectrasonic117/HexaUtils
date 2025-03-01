@@ -38,7 +38,7 @@ public class Main extends JavaPlugin {
         registerCommands();
         registerEvents();
         MiniMessageUtils.sendStartupMessage(this);
-        MiniMessageUtils.sendVeiMessage(this);
+        MiniMessageUtils.sendHexaStartup(this);
     }
 
     @Override
@@ -54,6 +54,8 @@ public class Main extends JavaPlugin {
 
     private void registerCommands() {
         commandManager = new PaperCommandManager(this);
+        firstSpawnCommand = new FirstSpawn(this);
+
         commandManager.registerCommand(new HexaUtils(this));
         commandManager.registerCommand(new DelWarpCommand(this));
         commandManager.registerCommand(new SetWarpCommand(this));
@@ -71,12 +73,12 @@ public class Main extends JavaPlugin {
         });
         commandManager.registerCommand(new GameModeCommand(this));
         commandManager.registerCommand(new NightVisionCommand(this));
-        commandManager.registerCommand(new FirstSpawn(this));
+        commandManager.registerCommand(firstSpawnCommand);
         
     }
 
     private void registerEvents() {
-        getServer().getPluginManager().registerEvents(firstSpawnCommand, this);
+            getServer().getPluginManager().registerEvents(firstSpawnCommand, this);
     }
 
     public void reloadConfigs() {
