@@ -47,6 +47,31 @@ public class MiniMessageUtils {
         }
     }
 
+    public static void sendHexaStartup(JavaPlugin plugin) {
+        String[] messages = {
+                PREFIX + "<red>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣾⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+                PREFIX + "<red>⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+                PREFIX + "<red>⠀⠀⠀⠀⠀⣀⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⡀⠀⠀⠀⠀⠀",
+                PREFIX + "<red>⠀⢀⣠⣶⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠁⠈⠙⠿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⠀⠀",
+                PREFIX + "<red>⣾⣿⣿⣿⣿⣿⣿⣿⠿⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⣿⣿⣿⣿⣿⣿⣿⡆",
+                PREFIX + "<red>⣿⣿⣿⣿⣿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣿⣿⣿⡇",
+                PREFIX + "<red>⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⡇",
+                PREFIX + "<red>⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⢠⣶⣿⣿⣿⣷⣦⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⡇",
+                PREFIX + "<red>⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⡇",
+                PREFIX + "<red>⣿⣿⣿⡿⠟⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⠿⣿⣿⣿⡇",
+                PREFIX + "<red>⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⠇",
+                PREFIX + "<red>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+                PREFIX + "<red>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+                PREFIX + "<red>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+                PREFIX + "<red>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+                PREFIX + "<red>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+                PREFIX + "<red>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        };
+
+        for (String message : messages) {
+            Bukkit.getConsoleSender().sendMessage(miniMessage.deserialize(message));
+        }
+    }
     public static void sendVeiMessage(JavaPlugin plugin) {
         String[] messages = {
                 PREFIX + "⣇⣿⠘⣿⣿⣿⡿⡿⣟⣟⢟⢟⢝⠵⡝⣿⡿⢂⣼⣿⣷⣌⠩⡫⡻⣝⠹⢿⣿⣷",
