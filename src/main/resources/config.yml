@@ -13,6 +13,7 @@ allowed-players:
     - JarpPlay
     - ImRadiGamer
     - AlexToolS
+    - RazorPlay01
 
 Blocked_Commands:
     - "minecraft:plugins"
