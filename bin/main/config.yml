@@ -28,6 +28,8 @@ Blocked_Commands:
     - "ver"
     - "?"
     - "help"
+    - "tell"
+    - "msg"
 
 FirstSpawn:
     enabled: true

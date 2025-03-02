@@ -55,6 +55,7 @@ public class Main extends JavaPlugin {
     private void registerCommands() {
         commandManager = new PaperCommandManager(this);
         firstSpawnCommand = new FirstSpawn(this);
+        BlockcommandManager blockcommandManager = new BlockcommandManager(this);
 
         commandManager.registerCommand(new HexaUtils(this));
         commandManager.registerCommand(new DelWarpCommand(this));
@@ -62,7 +63,7 @@ public class Main extends JavaPlugin {
         commandManager.registerCommand(new WarpCommand(this));
         commandManager.registerCommand(new WarpSystem(this));
         commandManager.registerCommand(new OperatorCommand(this));
-        commandManager.registerCommand(new PluginHiderCommand(this));
+        commandManager.registerCommand(new PluginHiderCommand(this, blockcommandManager));
         commandManager.getCommandCompletions().registerCompletion("warps", c -> warpManager.getWarpNames());
         commandManager.getCommandCompletions().registerCompletion("players", c -> {
             List<String> playerNames = new ArrayList<>();

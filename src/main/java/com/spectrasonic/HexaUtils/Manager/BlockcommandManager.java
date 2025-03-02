@@ -14,6 +14,7 @@ public class BlockcommandManager {
     public BlockcommandManager(Main plugin) {
         this.plugin = plugin;
         loadBlockedCommands();
+        
     }
 
     public void loadBlockedCommands() {
@@ -29,4 +30,13 @@ public class BlockcommandManager {
     public boolean isBlockedCommand(String command) {
         return blockedCommands.contains(command.toLowerCase());
     }
+
+    public void reloadBlockedCommands() {
+    // Clear the current list
+    blockedCommands.clear();
+    
+    // Reload the list from config
+    // This depends on how your config is structured, but might look something like:
+    blockedCommands.addAll(plugin.getConfig().getStringList("blocked-commands"));
+}
 }
