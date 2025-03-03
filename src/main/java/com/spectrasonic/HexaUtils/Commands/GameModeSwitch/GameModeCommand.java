@@ -1,11 +1,11 @@
 package com.spectrasonic.HexaUtils.Commands.GameModeSwitch;
 
+import com.spectrasonic.HexaUtils.Main;
+import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
-import com.spectrasonic.HexaUtils.Main;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 

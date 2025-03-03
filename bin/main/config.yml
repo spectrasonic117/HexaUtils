@@ -30,6 +30,7 @@ Blocked_Commands:
     - "help"
     - "tell"
     - "msg"
+    - "me"
 
 FirstSpawn:
     enabled: true

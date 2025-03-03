@@ -22,17 +22,16 @@ public class PluginHiderCommand extends BaseCommand {
         this.plugin = plugin;
         this.blockcommandManager = blockcommandManager;
     }
-
     @Subcommand("reload")
     @CommandCompletion("reload")
     public void onReload(CommandSender sender) {
         plugin.reloadConfigs();
-        blockcommandManager.reloadBlockedCommands();
+        blockcommandManager.loadBlockedCommands();
         
         if (sender instanceof Player) {
             MiniMessageUtils.sendMessage((Player) sender, "<green>PluginHider configuration reloaded.");
         } else {
-            sender.sendMessage("PluginHider configuration reloaded.");
+            MiniMessageUtils.sendMessage((Player) sender, "PluginHider configuration reloaded.");
         }
     }
 }
