@@ -4,7 +4,11 @@ plugins {
 }
 
 group = 'com.spectrasonic'
+<<<<<<< HEAD
 version = '21.8.4'
+=======
+version = '21.8.4-SNAPSHOT'
+>>>>>>> devel
 
 repositories {
     mavenCentral()

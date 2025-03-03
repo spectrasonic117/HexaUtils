@@ -3,6 +3,7 @@ package com.spectrasonic.HexaUtils.Commands.Warps;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandPermission;
+import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Subcommand;
 import com.spectrasonic.HexaUtils.Main;
 import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
@@ -15,13 +16,20 @@ public class WarpSystem extends BaseCommand {
 
     private final Main plugin;
 
+<<<<<<< HEAD
+=======
+    public WarpSystem(Main plugin) {
+        this.plugin = plugin;
+    }
+    @Default
+>>>>>>> devel
     @CommandAlias("warpsystem|ws")
     @Subcommand("reload")
     @CommandPermission("hexautils.warpsystem")
     public void onReloadCommand(CommandSender sender) {
-                plugin.reloadConfigs();
+        plugin.reloadConfigs();
         MiniMessageUtils.sendMessage((Player) sender, "<green>Warp Config reloaded!");
-            }
+    }
 
     @Subcommand("help")
     @CommandAlias("warpsimple")
