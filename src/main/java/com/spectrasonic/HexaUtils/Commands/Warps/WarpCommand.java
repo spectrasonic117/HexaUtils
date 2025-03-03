@@ -12,13 +12,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 
 public class WarpCommand extends BaseCommand {
+    
     private final Main plugin;
-
-    public WarpCommand(Main plugin) {
-        this.plugin = plugin;
-    }
 
     @Default
     @CommandAlias("warp")

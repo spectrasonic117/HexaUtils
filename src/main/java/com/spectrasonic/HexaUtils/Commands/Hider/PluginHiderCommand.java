@@ -10,18 +10,15 @@ import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
 import com.spectrasonic.HexaUtils.Manager.BlockcommandManager;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @CommandAlias("pluginhider|hider|ph")
 @CommandPermission("hexautils.pluginhider")
 public class PluginHiderCommand extends BaseCommand {
 
     private final Main plugin;
     private final BlockcommandManager blockcommandManager;
-
-    public PluginHiderCommand(Main plugin, BlockcommandManager blockcommandManager) {
-        this.plugin = plugin;
-        this.blockcommandManager = blockcommandManager;
-    }
 
     @Subcommand("reload")
     @CommandCompletion("reload")

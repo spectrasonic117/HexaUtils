@@ -12,9 +12,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import lombok.RequiredArgsConstructor;
 
 @Getter
 @Setter
+@RequiredArgsConstructor
 public class FirstSpawn extends BaseCommand implements Listener {
     
     private final JavaPlugin plugin;
@@ -22,11 +24,6 @@ public class FirstSpawn extends BaseCommand implements Listener {
     private boolean enabled;
     private boolean debug;
     private String welcomeMessage;
-    
-    public FirstSpawn(JavaPlugin plugin) {
-        this.plugin = plugin;
-        loadConfig();
-    }
     
     private void loadConfig() {
         FileConfiguration config = plugin.getConfig();

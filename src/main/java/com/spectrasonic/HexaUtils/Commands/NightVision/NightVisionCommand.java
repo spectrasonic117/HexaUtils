@@ -5,7 +5,9 @@ import com.spectrasonic.HexaUtils.Manager.NightVisionManager;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import org.bukkit.entity.Player;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @CommandAlias("nightvision|nv")
 public class NightVisionCommand extends BaseCommand {
     

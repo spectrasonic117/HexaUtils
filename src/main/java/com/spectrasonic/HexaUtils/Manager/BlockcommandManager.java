@@ -2,20 +2,17 @@ package com.spectrasonic.HexaUtils.Manager;
 
 import com.spectrasonic.HexaUtils.Main;
 import org.bukkit.configuration.file.FileConfiguration;
+import lombok.RequiredArgsConstructor;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@RequiredArgsConstructor
 public class BlockcommandManager {
+    
     private final Main plugin;
     private Set<String> blockedCommands;
-
-    public BlockcommandManager(Main plugin) {
-        this.plugin = plugin;
-        loadBlockedCommands();
-        
-    }
 
     public void loadBlockedCommands() {
         FileConfiguration config = plugin.getConfig();

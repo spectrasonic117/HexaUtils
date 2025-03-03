@@ -8,18 +8,15 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.server.ServerCommandEvent;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Listens for command execution attempts and blocks unauthorized access.
  */
+@RequiredArgsConstructor
 public class CommandListener implements Listener {
     private final Main plugin;
     private final BlockcommandManager blockcommandManager;
-
-    public CommandListener(Main plugin, BlockcommandManager blockcommandManager) {
-        this.plugin = plugin;
-        this.blockcommandManager = blockcommandManager;
-    }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerCommand(PlayerCommandPreprocessEvent event) {

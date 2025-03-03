@@ -13,13 +13,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public class WarpTabCompleter implements TabCompleter {
 
     private final Main plugin;
-
-    public WarpTabCompleter(Main plugin) {
-        this.plugin = plugin;
-    }
 
     @Override
     @Nullable

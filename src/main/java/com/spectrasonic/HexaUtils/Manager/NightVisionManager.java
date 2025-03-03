@@ -6,6 +6,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class NightVisionManager {
+    
     public static void toggleNightVision(Player player) {
         if (hasNightVision(player)) {
             removeNightVision(player);
