@@ -9,13 +9,17 @@ import com.spectrasonic.HexaUtils.Commands.Operator.OperatorCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.*;
 import com.spectrasonic.HexaUtils.Commands.GameModeSwitch.GameModeCommand;
 import com.spectrasonic.HexaUtils.Commands.NightVision.NightVisionCommand;
+import com.spectrasonic.HexaUtils.Commands.FirstSpawn.FirstSpawn;
 
 // --- Managers ---
 import com.spectrasonic.HexaUtils.Manager.WarpManager;
 import com.spectrasonic.HexaUtils.Manager.BlockcommandManager;
+import com.spectrasonic.HexaUtils.Manager.FirstSpawnManager;
+import com.spectrasonic.HexaUtils.Manager.ConfigManager;
 
 // --- Events ---
 import com.spectrasonic.HexaUtils.Events.CommandListener;
+import com.spectrasonic.HexaUtils.Events.FirstJoinListener;
 
 // --- Utils ---
 import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
@@ -28,12 +32,18 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
 
-@Getter
 public class Main extends JavaPlugin {
 
+    @Getter
     private WarpManager warpManager;
+    @Getter
     private PaperCommandManager commandManager;
+    @Getter
     private BlockcommandManager blockcommandManager;
+    @Getter
+    private FirstSpawnManager firstSpawnManager;
+    @Getter
+    private ConfigManager configManager;
 
     @Override
     public void onEnable() {
@@ -42,6 +52,8 @@ public class Main extends JavaPlugin {
         registerCommands();
         registerEvents();
         MiniMessageUtils.sendStartupMessage(this);
+
+        configManager = new ConfigManager(this, blockcommandManager, firstSpawnManager);
         MiniMessageUtils.sendHexaStartup(this);
     }
 
@@ -53,7 +65,9 @@ public class Main extends JavaPlugin {
     private void initializeManagers() {
         warpManager = new WarpManager(this);
         blockcommandManager = new BlockcommandManager(this);
-        getServer().getPluginManager().registerEvents(new CommandListener(this, blockcommandManager), this);
+
+        firstSpawnManager = new FirstSpawnManager(this);
+        firstSpawnManager.load();
     }
 
     private void registerCommands() {
@@ -75,18 +89,19 @@ public class Main extends JavaPlugin {
             }
             return playerNames;
         });
-        commandManager.registerCommand(new GameModeCommand());
+        commandManager.registerCommand(new GameModeCommand(this));
         commandManager.registerCommand(new NightVisionCommand(this));
-        
+        commandManager.registerCommand(new FirstSpawn(firstSpawnManager, this));
+
     }
 
     private void registerEvents() {
+        getServer().getPluginManager().registerEvents(new CommandListener(this, blockcommandManager), this);
+        getServer().getPluginManager().registerEvents(new FirstJoinListener(firstSpawnManager), this);
     }
 
     public void reloadConfigs() {
-        blockcommandManager.loadBlockedCommands();
-        warpManager.reloadWarpsConfig();
-        reloadConfig();
+        configManager.reloadAll();
     }
 
 }

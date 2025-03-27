@@ -35,8 +35,8 @@ Blocked_Commands:
 FirstSpawn:
     enabled: true
     debug: false
-    welcome-message: "<gradient:gold:yellow>¡Bienvenido a nuestro servidor!</gradient> <gray>Esperamos que disfrutes tu estancia."
-    firstSpawn:
+    welcome-message: "<white></white>"
+    FirstSpawn_location:
         world: world
         x: 0.0
         y: 64.0

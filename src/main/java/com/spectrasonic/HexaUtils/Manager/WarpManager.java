@@ -59,7 +59,7 @@ public class WarpManager {
         return warps.keySet();
     }
 
-    private void loadWarps() {
+    public void loadWarps() {
         for (String key : config.getKeys(false)) {
             String world = config.getString(key + ".world");
             double x = config.getDouble(key + ".x");
