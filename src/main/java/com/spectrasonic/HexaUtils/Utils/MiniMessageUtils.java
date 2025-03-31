@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class MiniMessageUtils {
 
     public static final String DIVIDER = "<gray>----------------------------------------</gray>";
-    public static final String PREFIX = "<gray>[<color:#EF3341> HexaUtils </color>]</gray> <gold>»</gold> ";
+    public static final String PREFIX = "<gray>[<color:#EF3341>HexaUtils</color>]</gray> <gold>»</gold> ";
 
     private static final MiniMessage miniMessage = MiniMessage.miniMessage();
 
@@ -30,7 +30,8 @@ public class MiniMessageUtils {
     }
 
     public static void sendPermissionMessage(CommandSender sender) {
-        sender.sendMessage(miniMessage.deserialize(PREFIX + "<red>You do not have permission to use this command!</red>"));
+        sender.sendMessage(
+                miniMessage.deserialize(PREFIX + "<red>You do not have permission to use this command!</red>"));
     }
 
     public static void sendStartupMessage(JavaPlugin plugin) {
@@ -72,6 +73,7 @@ public class MiniMessageUtils {
             Bukkit.getConsoleSender().sendMessage(miniMessage.deserialize(message));
         }
     }
+
     public static void sendVeiMessage(JavaPlugin plugin) {
         String[] messages = {
                 PREFIX + "⣇⣿⠘⣿⣿⣿⡿⡿⣟⣟⢟⢟⢝⠵⡝⣿⡿⢂⣼⣿⣷⣌⠩⡫⡻⣝⠹⢿⣿⣷",

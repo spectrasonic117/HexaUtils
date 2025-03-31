@@ -46,7 +46,7 @@ public class Main extends JavaPlugin {
     private FirstSpawnManager firstSpawnManager;
     @Getter
     private ConfigManager configManager;
-
+    @Getter
     private boolean canPlayersDropItems = true;
 
     @Override

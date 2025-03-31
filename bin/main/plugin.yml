@@ -98,5 +98,5 @@ permissions:
         default: op
     hexautils.itemdrop:
         default: op
-    hexautils.dropitem.bypass:
-        default: false
+    hexautils.itemdrop.bypass:
+        default: op

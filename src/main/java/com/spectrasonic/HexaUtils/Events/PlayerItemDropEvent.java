@@ -6,20 +6,22 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.entity.Player;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 public class PlayerItemDropEvent implements Listener {
 
     private final Main plugin;
+
+    public PlayerItemDropEvent(Main plugin) {
+        this.plugin = plugin;
+    }
 
     @EventHandler
     public void onPlayerDropItem(PlayerDropItemEvent event) {
         Player player = event.getPlayer();
 
-        if (plugin.itemDrop() && !player.hasPermission("hexautils.dropitem.bypass")) {
+        if (plugin.itemDrop() && !player.hasPermission("hexautils.itemdrop.bypass")) {
             event.setCancelled(true);
-            MiniMessageUtils.sendMessage(player, "&cYou can't drop items.");
+            MiniMessageUtils.sendMessage(player, "<red>You can't drop items.");
         }
     }
 }
