@@ -10,6 +10,7 @@ import com.spectrasonic.HexaUtils.Commands.Warps.*;
 import com.spectrasonic.HexaUtils.Commands.GameModeSwitch.GameModeCommand;
 import com.spectrasonic.HexaUtils.Commands.NightVision.NightVisionCommand;
 import com.spectrasonic.HexaUtils.Commands.FirstSpawn.FirstSpawn;
+import com.spectrasonic.HexaUtils.Commands.ItemDrop.ItemDropSwitcher;
 
 // --- Managers ---
 import com.spectrasonic.HexaUtils.Manager.WarpManager;
@@ -20,6 +21,7 @@ import com.spectrasonic.HexaUtils.Manager.ConfigManager;
 // --- Events ---
 import com.spectrasonic.HexaUtils.Events.CommandListener;
 import com.spectrasonic.HexaUtils.Events.FirstJoinListener;
+import com.spectrasonic.HexaUtils.Events.PlayerItemDropEvent;
 
 // --- Utils ---
 import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
@@ -44,6 +46,8 @@ public class Main extends JavaPlugin {
     private FirstSpawnManager firstSpawnManager;
     @Getter
     private ConfigManager configManager;
+
+    private boolean canPlayersDropItems = true;
 
     @Override
     public void onEnable() {
@@ -92,12 +96,21 @@ public class Main extends JavaPlugin {
         commandManager.registerCommand(new GameModeCommand(this));
         commandManager.registerCommand(new NightVisionCommand(this));
         commandManager.registerCommand(new FirstSpawn(firstSpawnManager, this));
-
+        commandManager.registerCommand(new ItemDropSwitcher(this));
     }
 
     private void registerEvents() {
         getServer().getPluginManager().registerEvents(new CommandListener(this, blockcommandManager), this);
         getServer().getPluginManager().registerEvents(new FirstJoinListener(firstSpawnManager), this);
+        getServer().getPluginManager().registerEvents(new PlayerItemDropEvent(this), this);
+    }
+
+    public boolean itemDrop() {
+        return canPlayersDropItems;
+    }
+
+    public void setPreventDrop(boolean itemDrop) {
+        this.canPlayersDropItems = itemDrop;
     }
 
     public void reloadConfigs() {

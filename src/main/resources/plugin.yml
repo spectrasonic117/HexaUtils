@@ -47,6 +47,9 @@ commands:
     firstspawn:
         permission: hexautils.firstspawn
         aliases: [fs]
+    itemdrop:
+        permission: hexautils.itemdrop
+        aliases: [id]
 
 permissions:
     hexautils.hexautils:
@@ -93,3 +96,7 @@ permissions:
             hexautils.firstspawn.debug:
                 default: op
         default: op
+    hexautils.itemdrop:
+        default: op
+    hexautils.dropitem.bypass:
+        default: false

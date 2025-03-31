@@ -33,7 +33,7 @@ Blocked_Commands:
     - "me"
 
 FirstSpawn:
-    enabled: true
+    enabled: false
     debug: false
     welcome-message: "<white></white>"
     FirstSpawn_location:
