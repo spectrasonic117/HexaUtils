@@ -22,7 +22,7 @@ public class WarpCommand extends BaseCommand {
     private final Main plugin;
     // Define constants for effect parameters for better readability and maintenance
     private static final double TELEPORT_EFFECT_HEIGHT = 3.0;
-    private static final int TELEPORT_EFFECT_DURATION = 60; // 60 ticks = 3 seconds
+    private static final int TELEPORT_EFFECT_DURATION = 20; // 60 ticks = 3 seconds
 
     @Default
     @CommandAlias("warp")
