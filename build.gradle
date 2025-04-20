@@ -1,10 +1,10 @@
 plugins {
-    id 'com.gradleup.shadow' version '9.0.0-beta11'
+    id 'com.gradleup.shadow' version '9.0.0-beta12'
     id 'java'
 }
 
 group = 'com.spectrasonic'
-version = '21.10'
+version = '21.10.1'
 
 repositories {
     mavenCentral()
