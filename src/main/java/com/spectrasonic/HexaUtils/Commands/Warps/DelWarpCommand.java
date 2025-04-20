@@ -6,7 +6,7 @@ import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
 import com.spectrasonic.HexaUtils.Main;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import org.bukkit.entity.Player;
 import lombok.RequiredArgsConstructor;
 
@@ -20,12 +20,12 @@ public class DelWarpCommand extends BaseCommand {
     @CommandPermission("hexautils.warpsystem.delwarp")
     @CommandCompletion("@warps")
     public void onDelWarpCommand(Player player, String[] args) {
-            if (args.length == 1) {
-                String warpName = args[0];
-                plugin.getWarpManager().delWarp(warpName);
-                MiniMessageUtils.sendMessage(player, "<red>Warp <yellow>" + warpName + " <red>deleted!");
-            } else {
-                MiniMessageUtils.sendMessage(player, "<red>Usage: <yellow>/delwarp <name>");
-            }
+        if (args.length == 1) {
+            String warpName = args[0];
+            plugin.getWarpManager().delWarp(warpName);
+            MessageUtils.sendMessage(player, "<red>Warp <yellow>" + warpName + " <red>deleted!");
+        } else {
+            MessageUtils.sendMessage(player, "<red>Usage: <yellow>/delwarp <name>");
         }
     }
+}

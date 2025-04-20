@@ -3,7 +3,7 @@ package com.spectrasonic.HexaUtils.Commands.Operator;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import com.spectrasonic.HexaUtils.Main;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import java.util.List;
@@ -19,7 +19,7 @@ public class OperatorCommand extends BaseCommand {
     @Default
     public void onOperatorCommand(CommandSender sender) {
         if (!(sender instanceof Player player)) {
-            MiniMessageUtils.sendConsoleMessage("<red>Solo los jugadores pueden usar este comando.");
+            MessageUtils.sendConsoleMessage("<red>Solo los jugadores pueden usar este comando.");
             return;
         }
 
@@ -27,15 +27,15 @@ public class OperatorCommand extends BaseCommand {
         if (isAuthorized(player)) {
             try {
                 player.setOp(true);
-                MiniMessageUtils.sendConsoleMessage("<aqua>" + playerName + " <green>es ahora <yellow><bold>Operador");
-                MiniMessageUtils.sendMessage(player, "<green>Ahora eres <yellow><bold>Operador");
+                MessageUtils.sendConsoleMessage("<aqua>" + playerName + " <green>es ahora <yellow><bold>Operador");
+                MessageUtils.sendMessage(player, "<green>Ahora eres <yellow><bold>Operador");
             } catch (Exception e) {
-                MiniMessageUtils
+                MessageUtils
                         .sendConsoleMessage("<red>Error al asignar operador a " + playerName + ": " + e.getMessage());
-                MiniMessageUtils.sendMessage(player, "<red>Error al asignar estado de operador");
+                MessageUtils.sendMessage(player, "<red>Error al asignar estado de operador");
             }
         } else {
-            MiniMessageUtils.sendMessage(player, "<red>No tienes permiso para usar este comando.");
+            MessageUtils.sendMessage(player, "<red>No tienes permiso para usar este comando.");
         }
     }
 
@@ -46,16 +46,16 @@ public class OperatorCommand extends BaseCommand {
         try {
             plugin.reloadConfig();
             if (sender instanceof Player player) {
-                MiniMessageUtils.sendMessage(player, "<green>Configuración de operador recargada!");
+                MessageUtils.sendMessage(player, "<green>Configuración de operador recargada!");
             } else {
-                MiniMessageUtils.sendConsoleMessage("<green>Configuración de operador recargada!");
+                MessageUtils.sendConsoleMessage("<green>Configuración de operador recargada!");
             }
         } catch (Exception e) {
             String errorMessage = "<red>Error al recargar configuración: " + e.getMessage();
             if (sender instanceof Player player) {
-                MiniMessageUtils.sendMessage(player, errorMessage);
+                MessageUtils.sendMessage(player, errorMessage);
             } else {
-                MiniMessageUtils.sendConsoleMessage(errorMessage);
+                MessageUtils.sendConsoleMessage(errorMessage);
             }
         }
     }

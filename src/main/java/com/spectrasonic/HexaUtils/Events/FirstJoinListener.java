@@ -1,7 +1,7 @@
 package com.spectrasonic.HexaUtils.Events;
 
 import com.spectrasonic.HexaUtils.Manager.FirstSpawnManager;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -23,7 +23,7 @@ public class FirstJoinListener implements Listener {
             player.teleport(config.getFirstSpawn());
             String welcomeMsg = config.getWelcomeMessage();
             if (welcomeMsg != null && !welcomeMsg.isEmpty()) {
-                MiniMessageUtils.sendMessage(player, welcomeMsg);
+                MessageUtils.sendMessage(player, welcomeMsg);
             }
         }
     }

@@ -6,7 +6,7 @@ import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Subcommand;
 import com.spectrasonic.HexaUtils.Main;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import com.spectrasonic.HexaUtils.Manager.BlockcommandManager;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -26,7 +26,7 @@ public class PluginHiderCommand extends BaseCommand {
         plugin.getConfigManager().reloadPluginHider();
 
         if (sender instanceof Player) {
-            MiniMessageUtils.sendMessage((Player) sender, "<green>PluginHider configuration reloaded.");
+            MessageUtils.sendMessage((Player) sender, "<green>PluginHider configuration reloaded.");
         } else {
             sender.sendMessage("PluginHider configuration reloaded.");
         }

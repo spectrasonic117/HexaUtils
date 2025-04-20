@@ -1,7 +1,7 @@
 package com.spectrasonic.HexaUtils.Events;
 
 import com.spectrasonic.HexaUtils.Main;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerDropItemEvent;
@@ -21,7 +21,7 @@ public class PlayerItemDropEvent implements Listener {
 
         if (plugin.itemDrop() && !player.hasPermission("hexautils.itemdrop.bypass")) {
             event.setCancelled(true);
-            MiniMessageUtils.sendMessage(player, "<red>You can't drop items.");
+            MessageUtils.sendMessage(player, "<red>You can't drop items.");
         }
     }
 }

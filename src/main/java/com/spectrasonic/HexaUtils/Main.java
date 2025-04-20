@@ -24,7 +24,7 @@ import com.spectrasonic.HexaUtils.Events.FirstJoinListener;
 import com.spectrasonic.HexaUtils.Events.PlayerItemDropEvent;
 
 // --- Utils ---
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -55,15 +55,15 @@ public class Main extends JavaPlugin {
         initializeManagers();
         registerCommands();
         registerEvents();
-        MiniMessageUtils.sendStartupMessage(this);
+        MessageUtils.sendStartupMessage(this);
 
         configManager = new ConfigManager(this, blockcommandManager, firstSpawnManager);
-        MiniMessageUtils.sendHexaStartup(this);
+        MessageUtils.sendHexaStartup(this);
     }
 
     @Override
     public void onDisable() {
-        MiniMessageUtils.sendShutdownMessage(this);
+        MessageUtils.sendShutdownMessage(this);
     }
 
     private void initializeManagers() {

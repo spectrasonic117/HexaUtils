@@ -3,7 +3,7 @@ package com.spectrasonic.HexaUtils.Commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import com.spectrasonic.HexaUtils.Main;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import com.spectrasonic.HexaUtils.Utils.SoundUtils;
 import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
@@ -35,11 +35,11 @@ public class HexaUtils extends BaseCommand {
             SoundUtils.playerSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 1.0f);
         }
 
-        MiniMessageUtils.sendMessage((Player) sender,
+        MessageUtils.sendMessage((Player) sender,
                 "<gray>Version: <light_purple>%s".formatted(plugin.getDescription().getVersion()));
-        MiniMessageUtils.sendMessage((Player) sender,
+        MessageUtils.sendMessage((Player) sender,
                 "<gray>Developed by: <red>%s".formatted(plugin.getDescription().getAuthors()));
-        MiniMessageUtils.sendMessage((Player) sender, "<gray>A Plugin for <color:#EF3341><bold>Hexa Creators</bold>");
+        MessageUtils.sendMessage((Player) sender, "<gray>A Plugin for <color:#EF3341><bold>Hexa Creators</bold>");
     }
 
     @Subcommand("reload")
@@ -49,7 +49,7 @@ public class HexaUtils extends BaseCommand {
         plugin.reloadConfigs();
 
         if (sender instanceof Player) {
-            MiniMessageUtils.sendMessage((Player) sender, "<green>HexaUtils configuration reloaded successfully!");
+            MessageUtils.sendMessage((Player) sender, "<green>HexaUtils configuration reloaded successfully!");
             SoundUtils.playerSound((Player) sender, Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 1.0f);
         } else {
             sender.sendMessage("HexaUtils configuration reloaded successfully!");
@@ -78,7 +78,7 @@ public class HexaUtils extends BaseCommand {
         };
 
         for (String message : helpMessages) {
-            MiniMessageUtils.sendMessage((Player) sender, message);
+            MessageUtils.sendMessage((Player) sender, message);
         }
     }
 }

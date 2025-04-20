@@ -6,7 +6,7 @@ import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
 import com.spectrasonic.HexaUtils.Main;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import lombok.RequiredArgsConstructor;
@@ -21,18 +21,18 @@ public class SetWarpCommand extends BaseCommand {
     @CommandPermission("hexautils.warpsystem.setwarp")
     @CommandCompletion("@warps")
     public void onSetWarpCommand(Player player, String[] args) {
-            if (args.length == 1) {
-                String warpName = args[0];
-                if (plugin.getWarpManager().getWarp(warpName) != null) {
-                    MiniMessageUtils.sendMessage(player, "<red>El warp <gold>" + warpName + "<red> ya existe!");
+        if (args.length == 1) {
+            String warpName = args[0];
+            if (plugin.getWarpManager().getWarp(warpName) != null) {
+                MessageUtils.sendMessage(player, "<red>El warp <gold>" + warpName + "<red> ya existe!");
                 return;
-                }
-
-                Location location = player.getLocation();
-                plugin.getWarpManager().setWarp(warpName, location);
-                MiniMessageUtils.sendMessage(player, "<green>Warp <gold>" + warpName + "<green> set!");
-            } else {
-                MiniMessageUtils.sendMessage(player, "<red>You must specify a name.");
             }
+
+            Location location = player.getLocation();
+            plugin.getWarpManager().setWarp(warpName, location);
+            MessageUtils.sendMessage(player, "<green>Warp <gold>" + warpName + "<green> set!");
+        } else {
+            MessageUtils.sendMessage(player, "<red>You must specify a name.");
         }
     }
+}

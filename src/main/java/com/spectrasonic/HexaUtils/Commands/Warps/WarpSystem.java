@@ -3,7 +3,7 @@ package com.spectrasonic.HexaUtils.Commands.Warps;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import com.spectrasonic.HexaUtils.Main;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import com.spectrasonic.HexaUtils.Utils.SoundUtils;
 import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
@@ -31,7 +31,7 @@ public class WarpSystem extends BaseCommand {
         plugin.getConfigManager().reloadWarps();
 
         if (sender instanceof Player player) {
-            MiniMessageUtils.sendMessage(player, "<green>Configuración de warps recargada!");
+            MessageUtils.sendMessage(player, "<green>Configuración de warps recargada!");
         } else {
             sender.sendMessage("Configuración de warps recargada!");
         }
@@ -62,9 +62,9 @@ public class WarpSystem extends BaseCommand {
 
         for (String message : helpMessages) {
             if (sender instanceof Player) {
-                MiniMessageUtils.sendMessage((Player) sender, message);
+                MessageUtils.sendMessage((Player) sender, message);
             } else {
-                MiniMessageUtils.sendConsoleMessage(message);
+                MessageUtils.sendConsoleMessage(message);
             }
         }
     }

@@ -2,7 +2,7 @@ package com.spectrasonic.HexaUtils.Commands.FirstSpawn;
 
 import com.spectrasonic.HexaUtils.Main;
 import com.spectrasonic.HexaUtils.Manager.FirstSpawnManager;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import lombok.RequiredArgsConstructor;
@@ -22,14 +22,14 @@ public class FirstSpawn extends BaseCommand {
     @Description("Establece la ubicación del spawn")
     public void onSet(Player player) {
         config.setFirstSpawn(player.getLocation());
-        MiniMessageUtils.sendMessage(player, "<green>Spawn establecido en tu ubicación actual!");
+        MessageUtils.sendMessage(player, "<green>Spawn establecido en tu ubicación actual!");
     }
 
     @Subcommand("toggle")
     @Description("Activa/desactiva el plugin")
     public void onToggle(CommandSender sender) {
         config.toggleEnabled();
-        MiniMessageUtils.sendMessage(sender, "<yellow>Estado: " +
+        MessageUtils.sendMessage(sender, "<yellow>Estado: " +
                 (config.isEnabled() ? "<green>Activado" : "<red>Desactivado"), "", "");
         config.save();
     }
@@ -40,7 +40,7 @@ public class FirstSpawn extends BaseCommand {
         plugin.getConfigManager().reloadFirstSpawn();
 
         if (sender instanceof Player) {
-            MiniMessageUtils.sendMessage((Player) sender, "<green>Configuración recargada!");
+            MessageUtils.sendMessage((Player) sender, "<green>Configuración recargada!");
         } else {
             sender.sendMessage("Configuración recargada!");
         }
@@ -50,7 +50,7 @@ public class FirstSpawn extends BaseCommand {
     @Description("Modo debug")
     public void onDebug(CommandSender sender) {
         config.toggleDebug();
-        MiniMessageUtils.sendMessage(sender, "<yellow>Debug: " +
+        MessageUtils.sendMessage(sender, "<yellow>Debug: " +
                 (config.isDebug() ? "<green>Activado" : "<red>Desactivado"), "", "");
         config.save();
     }
@@ -59,11 +59,11 @@ public class FirstSpawn extends BaseCommand {
     @Description("Teletransporta al spawn")
     public void onTest(Player player) {
         if (config.getFirstSpawn() == null) {
-            MiniMessageUtils.sendMessage(player, "<red>Spawn no establecido!");
+            MessageUtils.sendMessage(player, "<red>Spawn no establecido!");
             return;
         }
         player.teleport(config.getFirstSpawn());
-        MiniMessageUtils.sendMessage(player, "<green>Teletransportado!");
+        MessageUtils.sendMessage(player, "<green>Teletransportado!");
     }
 
     @Subcommand("status")
@@ -73,11 +73,11 @@ public class FirstSpawn extends BaseCommand {
         String loc = spawn != null ? String.format("Mundo: %s, X: %.1f, Y: %.1f, Z: %.1f",
                 spawn.getWorld().getName(), spawn.getX(), spawn.getY(), spawn.getZ()) : "<red>No establecido";
 
-        MiniMessageUtils.sendMessage(sender, "<gold>Estado de FirstSpawn:", "", "");
-        MiniMessageUtils.sendMessage(sender, "<yellow>• Activado: " +
+        MessageUtils.sendMessage(sender, "<gold>Estado de FirstSpawn:", "", "");
+        MessageUtils.sendMessage(sender, "<yellow>• Activado: " +
                 (config.isEnabled() ? "<green>Sí" : "<red>No"), "", "");
-        MiniMessageUtils.sendMessage(sender, "<yellow>• Ubicación: " + loc, "", "");
-        MiniMessageUtils.sendMessage(sender, "<yellow>• Debug: " +
+        MessageUtils.sendMessage(sender, "<yellow>• Ubicación: " + loc, "", "");
+        MessageUtils.sendMessage(sender, "<yellow>• Debug: " +
                 (config.isDebug() ? "<green>Activado" : "<red>Desactivado"), "", "");
     }
 
@@ -85,6 +85,6 @@ public class FirstSpawn extends BaseCommand {
     @Description("Establece el mensaje de bienvenida")
     public void onSetMessage(CommandSender sender, String message) {
         config.setWelcomeMessage(message);
-        MiniMessageUtils.sendMessage((Player) sender, "<green>Mensaje de bienvenida actualizado!");
+        MessageUtils.sendMessage((Player) sender, "<green>Mensaje de bienvenida actualizado!");
     }
 }

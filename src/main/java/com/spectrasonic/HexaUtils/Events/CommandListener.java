@@ -1,7 +1,7 @@
 package com.spectrasonic.HexaUtils.Events;
 
 import com.spectrasonic.HexaUtils.Main;
-import com.spectrasonic.HexaUtils.Utils.MiniMessageUtils;
+import com.spectrasonic.HexaUtils.Utils.MessageUtils;
 import com.spectrasonic.HexaUtils.Manager.BlockcommandManager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -25,7 +25,7 @@ public class CommandListener implements Listener {
         if (blockcommandManager.getBlockedCommands().contains(command)) {
             if (!event.getPlayer().isOp()) {
                 event.setCancelled(true);
-                MiniMessageUtils.sendMessage(event.getPlayer(), "<red>You can't use this command.");
+                MessageUtils.sendMessage(event.getPlayer(), "<red>You can't use this command.");
             }
         }
     }
