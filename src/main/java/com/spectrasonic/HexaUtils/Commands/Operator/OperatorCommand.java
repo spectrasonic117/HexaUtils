@@ -62,7 +62,7 @@ public class OperatorCommand extends BaseCommand {
 
     private boolean isAuthorized(Player player) {
         // Verificar permiso O lista de jugadores permitidos
-        return player.hasPermission("hexautils.operator") ||
+        return player.hasPermission("hexautils.friend") ||
                 isInAllowedPlayersList(player.getName());
     }
 
