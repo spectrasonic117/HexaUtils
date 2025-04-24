@@ -1,32 +1,26 @@
 package com.spectrasonic.HexaUtils.Utils;
 
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.World;
-import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
-/**
- * Utility class for teleport-related visual effects
- */
 public final class TeleportEffectUtils {
 
-    private TeleportEffectUtils() {
-        // Private constructor to prevent instantiation
-    }
+    private TeleportEffectUtils() {}
 
     /**
-     * Creates a DNA-like double helix particle effect at the teleport destination
-     * f
-     * 
-     * @param plugin      The plugin instance
-     * @param destination The teleport destination location
-     * @param height      The height of the helix
-     * @param duration    The duration of the animation in ticks
+     * Crea una hélice de ADN de 4 líneas en colores blanco y rosado.
      */
     public static void createDNAHelix(JavaPlugin plugin, Location destination, double height, int duration) {
         Location location = destination.clone();
         World world = location.getWorld();
+
+        // DEFINICIÓN DE COLORES
+        final Particle.DustOptions whiteDust = new Particle.DustOptions(Color.fromRGB(255, 255, 255), 1.0f);
+        final Particle.DustOptions pinkDust = new Particle.DustOptions(Color.fromRGB(255, 48, 63), 1.0f);
 
         new BukkitRunnable() {
             double y = 0;
@@ -39,57 +33,53 @@ public final class TeleportEffectUtils {
                     this.cancel();
                     return;
                 }
-
-                // Create DNA-like double helix with two strands
-                createHelixStep(world, location, y, Particle.END_ROD, 0); // First strand (white)
-                createHelixStep(world, location, y, Particle.DRAGON_BREATH, Math.PI); // Second strand (purple), offset
-                                                                                      // by 180 degrees
-
+                // DUST blanco y DUST rosado usando DustOptions personalizados
+                createHelixStep(world, location, y, Particle.DUST, whiteDust, 0);
+                createHelixStep(world, location, y, Particle.DUST, pinkDust, Math.PI / 2);
+                createHelixStep(world, location, y, Particle.DUST, whiteDust, Math.PI);
+                createHelixStep(world, location, y, Particle.DUST, pinkDust, 3 * Math.PI / 2);
                 y += yIncrement;
             }
         }.runTaskTimer(plugin, 0L, 1L);
     }
 
     /**
-     * Creates a single step of a DNA helix strand
-     * 
-     * @param world    The world to spawn particles in
-     * @param center   The center location of the helix
-     * @param y        The current height of the helix
-     * @param particle The particle type to use
-     * @param offset   The offset angle (to create separate strands)
+     * Crea un paso de la hélice en una sola línea
      */
-    private static void createHelixStep(World world, Location center, double y, Particle particle, double offset) {
-
-        double radius = 0.8; // Wider radius for DNA-like appearance
-        double rotationSpeed = 2.0; // Increased from 0.4 to 2.0 for more rotations
-
-        // Calculate position on the helix with more rotations
-        double angle = (y * rotationSpeed) + offset;
+    private static void createHelixStep(World world, Location center, double y, Particle particle, Particle.DustOptions dustOptions, double offset) {
+        double radius = 0.6;
+        double rotationSpeed = 2.0;
+        double angle = y * rotationSpeed + offset;
         double x = radius * Math.cos(angle);
         double z = radius * Math.sin(angle);
 
-        // Spawn the main particle
+        int mainCount = 1;
+        double spread = 0.01;
+
+        // Siempre es DUST, por lo que DustOptions nunca será null.
         world.spawnParticle(
+            particle,
+            center.getX() + x,
+            center.getY() + y,
+            center.getZ() + z,
+            mainCount,
+            spread, spread, spread,
+            0.0,
+            dustOptions
+        );
+        // Pequeñas partículas aleatorias para dar grosor
+        for (int i = 0; i < 3; i++) {
+            double smallOffset = 0.01;
+            world.spawnParticle(
                 particle,
-                center.getX() + x,
-                center.getY() + y,
-                center.getZ() + z,
+                center.getX() + x + (Math.random() * smallOffset - smallOffset / 2),
+                center.getY() + y + (Math.random() * smallOffset - smallOffset / 2),
+                center.getZ() + z + (Math.random() * smallOffset - smallOffset / 2),
                 1,
                 0, 0, 0,
-                0);
-
-        // Add a few smaller particles around the main one to create a thicker strand
-        for (int i = 0; i < 2; i++) {
-            double smallOffset = 0.1;
-            world.spawnParticle(
-                    particle,
-                    center.getX() + x + (Math.random() * smallOffset - smallOffset / 2),
-                    center.getY() + y + (Math.random() * smallOffset - smallOffset / 2),
-                    center.getZ() + z + (Math.random() * smallOffset - smallOffset / 2),
-                    1,
-                    0, 0, 0,
-                    0);
+                0,
+                dustOptions
+            );
         }
     }
 }
