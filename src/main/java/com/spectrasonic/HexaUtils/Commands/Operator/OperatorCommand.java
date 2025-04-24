@@ -10,7 +10,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@CommandAlias("operator|ope|su")
+@CommandAlias("ope|su")
 @CommandPermission("hexautils.operator")
 public class OperatorCommand extends BaseCommand {
 
