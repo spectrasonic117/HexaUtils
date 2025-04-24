@@ -101,4 +101,4 @@ permissions:
     hexautils.itemdrop.bypass:
         default: op
     hexautils.friend:
-        default: op
+        default: false

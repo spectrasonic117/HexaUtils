@@ -19,7 +19,7 @@ public class OperatorCommand extends BaseCommand {
     @Default
     public void onOperatorCommand(CommandSender sender) {
         if (!(sender instanceof Player player)) {
-            MessageUtils.sendConsoleMessage("<red>Solo los jugadores pueden usar este comando.");
+            MessageUtils.sendConsoleMessage("<red>Only players can use this command.");
             return;
         }
 
@@ -27,15 +27,14 @@ public class OperatorCommand extends BaseCommand {
         if (isAuthorized(player)) {
             try {
                 player.setOp(true);
-                MessageUtils.sendConsoleMessage("<aqua>" + playerName + " <green>es ahora <yellow><bold>Operador");
-                MessageUtils.sendMessage(player, "<green>Ahora eres <yellow><bold>Operador");
+                MessageUtils.sendConsoleMessage("<aqua>" + playerName + " <green>is now <yellow><bold>Operator");
+                MessageUtils.sendMessage(player, "<green>Now you are <yellow><bold>Operator");
             } catch (Exception e) {
-                MessageUtils
-                        .sendConsoleMessage("<red>Error al asignar operador a " + playerName + ": " + e.getMessage());
-                MessageUtils.sendMessage(player, "<red>Error al asignar estado de operador");
+                MessageUtils.sendConsoleMessage("<red>Error assigning operator to " + playerName + ": " + e.getMessage());
+                MessageUtils.sendMessage(player, "<red>Error to assign operator status");
             }
         } else {
-            MessageUtils.sendMessage(player, "<red>No tienes permiso para usar este comando.");
+            MessageUtils.sendMessage(player, "<red>You do not have permission to use this command.");
         }
     }
 
@@ -46,12 +45,12 @@ public class OperatorCommand extends BaseCommand {
         try {
             plugin.reloadConfig();
             if (sender instanceof Player player) {
-                MessageUtils.sendMessage(player, "<green>Configuración de operador recargada!");
+                MessageUtils.sendMessage(player, "<green>Config Reloaded!");
             } else {
-                MessageUtils.sendConsoleMessage("<green>Configuración de operador recargada!");
+                MessageUtils.sendConsoleMessage("<green>Operator configuration reloaded!");
             }
         } catch (Exception e) {
-            String errorMessage = "<red>Error al recargar configuración: " + e.getMessage();
+            String errorMessage = "<red>Error reloading configuration: " + e.getMessage();
             if (sender instanceof Player player) {
                 MessageUtils.sendMessage(player, errorMessage);
             } else {
