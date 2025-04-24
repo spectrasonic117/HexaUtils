@@ -11,17 +11,12 @@ public final class TeleportEffectUtils {
 
     private TeleportEffectUtils() {}
 
-    /**
-     * Crea una hélice de ADN de 4 líneas en colores blanco y rosado.
-     */
     public static void createDNAHelix(JavaPlugin plugin, Location destination, double height, int duration) {
         Location location = destination.clone();
         World world = location.getWorld();
 
-        // DEFINICIÓN DE COLORES
         final Particle.DustOptions whiteDust = new Particle.DustOptions(Color.fromRGB(255, 255, 255), 1.0f);
         final Particle.DustOptions pinkDust = new Particle.DustOptions(Color.fromRGB(255, 48, 63), 1.0f);
-
         new BukkitRunnable() {
             double y = 0;
             final double maxY = height;
@@ -33,7 +28,6 @@ public final class TeleportEffectUtils {
                     this.cancel();
                     return;
                 }
-                // DUST blanco y DUST rosado usando DustOptions personalizados
                 createHelixStep(world, location, y, Particle.DUST, whiteDust, 0);
                 createHelixStep(world, location, y, Particle.DUST, pinkDust, Math.PI / 2);
                 createHelixStep(world, location, y, Particle.DUST, whiteDust, Math.PI);
@@ -43,9 +37,6 @@ public final class TeleportEffectUtils {
         }.runTaskTimer(plugin, 0L, 1L);
     }
 
-    /**
-     * Crea un paso de la hélice en una sola línea
-     */
     private static void createHelixStep(World world, Location center, double y, Particle particle, Particle.DustOptions dustOptions, double offset) {
         double radius = 0.6;
         double rotationSpeed = 2.0;
@@ -56,7 +47,6 @@ public final class TeleportEffectUtils {
         int mainCount = 1;
         double spread = 0.01;
 
-        // Siempre es DUST, por lo que DustOptions nunca será null.
         world.spawnParticle(
             particle,
             center.getX() + x,
@@ -67,7 +57,6 @@ public final class TeleportEffectUtils {
             0.0,
             dustOptions
         );
-        // Pequeñas partículas aleatorias para dar grosor
         for (int i = 0; i < 3; i++) {
             double smallOffset = 0.01;
             world.spawnParticle(
