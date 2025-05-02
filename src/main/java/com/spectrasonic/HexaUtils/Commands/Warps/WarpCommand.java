@@ -20,9 +20,8 @@ import lombok.RequiredArgsConstructor;
 public class WarpCommand extends BaseCommand {
 
     private final Main plugin;
-    // Define constants for effect parameters for better readability and maintenance
     private static final double TELEPORT_EFFECT_HEIGHT = 2.0;
-    private static final int TELEPORT_EFFECT_DURATION = 10; // 60 ticks = 3 seconds
+    private static final int TELEPORT_EFFECT_DURATION = 10;
 
     @Default
     @CommandAlias("warp")
@@ -30,13 +29,7 @@ public class WarpCommand extends BaseCommand {
     @CommandCompletion("@warps @players")
     public void onWarpCommand(Player player, String[] args) {
         if (args.length == 0) {
-            // Handle case where no warp name is provided
             MessageUtils.sendMessage(player, "<red>Usage: /warp <warpName> [playerName|all]");
-            // Optionally, list available warps here
-            // String availableWarps = String.join(", ",
-            // plugin.getWarpManager().getWarpNames());
-            // MessageUtils.sendMessage(player, "<gray>Available warps: <yellow>" +
-            // availableWarps);
             return;
         }
 
@@ -49,12 +42,10 @@ public class WarpCommand extends BaseCommand {
         }
 
         if (args.length == 1) {
-            // Teleport the command sender
             teleportPlayerWithEffect(player, location, warpName);
         } else if (args.length == 2) {
             String targetArg = args[1];
             if ("all".equalsIgnoreCase(targetArg)) {
-                // Teleport all online players
                 if (!player.hasPermission("hexautils.warpsystem.warp.all")) {
                     MessageUtils.sendPermissionMessage(player);
                     return;
@@ -64,7 +55,6 @@ public class WarpCommand extends BaseCommand {
                     teleportPlayerWithEffect(onlinePlayer, location, warpName);
                 }
             } else {
-                // Teleport a specific player
                 if (!player.hasPermission("hexautils.warpsystem.warp.other")) {
                     MessageUtils.sendPermissionMessage(player);
                     return;
@@ -79,22 +69,13 @@ public class WarpCommand extends BaseCommand {
                 }
             }
         } else {
-            // Handle incorrect usage if more than 2 arguments are provided
             MessageUtils.sendMessage(player, "<red>Usage: /warp <warpName> [playerName|all]");
         }
     }
 
-    /**
-     * Helper method to teleport a player and apply the visual effect.
-     * 
-     * @param targetPlayer The player to teleport.
-     * @param destination  The location to teleport to.
-     * @param warpName     The name of the warp for messaging.
-     */
     private void teleportPlayerWithEffect(Player targetPlayer, Location destination, String warpName) {
         targetPlayer.teleport(destination);
         SoundUtils.playerSound(targetPlayer, Sound.ENTITY_ENDERMAN_TELEPORT, 0.5f, 0.3f);
-        // --- Add particle effect call ---
         TeleportEffectUtils.createDNAHelix(plugin, destination, TELEPORT_EFFECT_HEIGHT, TELEPORT_EFFECT_DURATION);
         MessageUtils.sendMessage(targetPlayer, "<green>Teleported to <gold>" + warpName + "<green>.");
     }
