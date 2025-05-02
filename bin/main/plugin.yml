@@ -9,9 +9,9 @@ commands:
         description: Allow players to see all Comamnds.
         aliases: [hu]
         permission: hexautils.hexautils
-    operator:
+    ope:
         description: Allow players to use Op Commands.
-        aliases: [ope, su]
+        aliases: [su]
         permission: hexautils.operator
     setwarp:
         description: Creates a warp
@@ -100,3 +100,5 @@ permissions:
         default: op
     hexautils.itemdrop.bypass:
         default: op
+    hexautils.friend:
+        default: false
