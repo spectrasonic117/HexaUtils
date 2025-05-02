@@ -1,10 +1,11 @@
 plugins {
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.16"
     id 'com.gradleup.shadow' version '9.0.0-beta12'
     id 'java'
 }
 
 group = 'com.spectrasonic'
-version = '21.10.1'
+version = '21.10.2'
 
 repositories {
     mavenCentral()
@@ -23,7 +24,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT") // Paper
+    // compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT") // Paper
+    paperweight.paperDevBundle("1.21.5-R0.1-SNAPSHOT") // Paperweight
 
     // ACF Aikar
     implementation "co.aikar:acf-paper:0.5.1-SNAPSHOT"
@@ -47,6 +49,7 @@ shadowJar {
 }
 
 build.dependsOn shadowJar
+build.finalizedBy reobfJar
 
 
 def targetJavaVersion = 21

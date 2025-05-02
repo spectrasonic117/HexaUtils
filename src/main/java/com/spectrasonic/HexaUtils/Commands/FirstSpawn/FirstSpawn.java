@@ -30,7 +30,7 @@ public class FirstSpawn extends BaseCommand {
     public void onToggle(CommandSender sender) {
         config.toggleEnabled();
         MessageUtils.sendMessage(sender, "<yellow>Estado: " +
-                (config.isEnabled() ? "<green>Activado" : "<red>Desactivado"), "", "");
+                (config.isEnabled() ? "<green>Activado" : "<red>Desactivado"));
         config.save();
     }
 
@@ -51,7 +51,7 @@ public class FirstSpawn extends BaseCommand {
     public void onDebug(CommandSender sender) {
         config.toggleDebug();
         MessageUtils.sendMessage(sender, "<yellow>Debug: " +
-                (config.isDebug() ? "<green>Activado" : "<red>Desactivado"), "", "");
+                (config.isDebug() ? "<green>Activado" : "<red>Desactivado"));
         config.save();
     }
 
@@ -73,12 +73,12 @@ public class FirstSpawn extends BaseCommand {
         String loc = spawn != null ? String.format("Mundo: %s, X: %.1f, Y: %.1f, Z: %.1f",
                 spawn.getWorld().getName(), spawn.getX(), spawn.getY(), spawn.getZ()) : "<red>No establecido";
 
-        MessageUtils.sendMessage(sender, "<gold>Estado de FirstSpawn:", "", "");
+        MessageUtils.sendMessage(sender, "<gold>Estado de FirstSpawn:");
         MessageUtils.sendMessage(sender, "<yellow>• Activado: " +
-                (config.isEnabled() ? "<green>Sí" : "<red>No"), "", "");
-        MessageUtils.sendMessage(sender, "<yellow>• Ubicación: " + loc, "", "");
+                (config.isEnabled() ? "<green>Sí" : "<red>No"));
+        MessageUtils.sendMessage(sender, "<yellow>• Ubicación: " + loc);
         MessageUtils.sendMessage(sender, "<yellow>• Debug: " +
-                (config.isDebug() ? "<green>Activado" : "<red>Desactivado"), "", "");
+                (config.isDebug() ? "<green>Activado" : "<red>Desactivado"));
     }
 
     @Subcommand("setmessage|setmsg")

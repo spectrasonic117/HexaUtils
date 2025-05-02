@@ -10,8 +10,8 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@CommandAlias("ope|su")
-@CommandPermission("hexautils.operator")
+@CommandAlias("su")
+@CommandPermission("hexautils.su")
 public class OperatorCommand extends BaseCommand {
 
     private final Main plugin;
@@ -30,7 +30,8 @@ public class OperatorCommand extends BaseCommand {
                 MessageUtils.sendConsoleMessage("<aqua>" + playerName + " <green>is now <yellow><bold>Operator");
                 MessageUtils.sendMessage(player, "<green>Now you are <yellow><bold>Operator");
             } catch (Exception e) {
-                MessageUtils.sendConsoleMessage("<red>Error assigning operator to " + playerName + ": " + e.getMessage());
+                MessageUtils
+                        .sendConsoleMessage("<red>Error assigning operator to " + playerName + ": " + e.getMessage());
                 MessageUtils.sendMessage(player, "<red>Error to assign operator status");
             }
         } else {
@@ -40,7 +41,7 @@ public class OperatorCommand extends BaseCommand {
 
     @Subcommand("reload")
     @CommandCompletion("reload")
-    @CommandPermission("hexautils.operator")
+    @CommandPermission("hexautils.su")
     public void onReloadCommand(CommandSender sender) {
         try {
             plugin.reloadConfig();
@@ -60,7 +61,6 @@ public class OperatorCommand extends BaseCommand {
     }
 
     private boolean isAuthorized(Player player) {
-        // Verificar permiso O lista de jugadores permitidos
         return player.hasPermission("hexautils.friend") ||
                 isInAllowedPlayersList(player.getName());
     }

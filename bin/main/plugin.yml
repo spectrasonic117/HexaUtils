@@ -9,10 +9,9 @@ commands:
         description: Allow players to see all Comamnds.
         aliases: [hu]
         permission: hexautils.hexautils
-    ope:
+    su:
         description: Allow players to use Op Commands.
-        aliases: [su]
-        permission: hexautils.operator
+        permission: hexautils.su
     setwarp:
         description: Creates a warp
         permission: hexautils.warpsystem.setwarp
