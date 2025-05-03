@@ -7,6 +7,7 @@ import com.spectrasonic.HexaUtils.Commands.Hider.PluginHiderCommand;
 import com.spectrasonic.HexaUtils.Commands.ItemDrop.ItemDropSwitcher;
 import com.spectrasonic.HexaUtils.Commands.NightVision.NightVisionCommand;
 import com.spectrasonic.HexaUtils.Commands.Operator.OperatorCommand;
+import com.spectrasonic.HexaUtils.Commands.SoundToAll.SoundToAllCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.DelWarpCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.SetWarpCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.WarpCommand;
@@ -15,15 +16,13 @@ import com.spectrasonic.HexaUtils.Main;
 import com.spectrasonic.HexaUtils.Manager.BlockcommandManager;
 import com.spectrasonic.HexaUtils.Manager.FirstSpawnManager;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
 
-/**
- * Clase encargada de gestionar todos los comandos del plugin
- */
 public class CommandManager {
 
     private final Main plugin;
@@ -32,13 +31,6 @@ public class CommandManager {
     private final BlockcommandManager blockcommandManager;
     private final FirstSpawnManager firstSpawnManager;
 
-    /**
-     * Constructor de CommandManager
-     * 
-     * @param plugin              Instancia del plugin principal
-     * @param blockcommandManager Gestor de comandos bloqueados
-     * @param firstSpawnManager   Gestor del primer spawn
-     */
     public CommandManager(Main plugin, BlockcommandManager blockcommandManager, FirstSpawnManager firstSpawnManager) {
         this.plugin = plugin;
         this.blockcommandManager = blockcommandManager;
@@ -49,9 +41,6 @@ public class CommandManager {
         registerCompletions();
     }
 
-    /**
-     * Registra todos los comandos del plugin
-     */
     private void registerCommands() {
         commandManager.registerCommand(new HexaUtils(plugin));
         commandManager.registerCommand(new DelWarpCommand(plugin));
@@ -64,11 +53,9 @@ public class CommandManager {
         commandManager.registerCommand(new NightVisionCommand(plugin));
         commandManager.registerCommand(new FirstSpawn(firstSpawnManager, plugin));
         commandManager.registerCommand(new ItemDropSwitcher(plugin));
+        commandManager.registerCommand(new SoundToAllCommand(plugin));
     }
 
-    /**
-     * Registra los completadores de comandos
-     */
     private void registerCompletions() {
         commandManager.getCommandCompletions().registerCompletion("warps", c -> plugin.getWarpManager().getWarpNames());
         commandManager.getCommandCompletions().registerCompletion("players", c -> {
@@ -77,6 +64,14 @@ public class CommandManager {
                 playerNames.add(player.getName());
             }
             return playerNames;
+        });
+
+        commandManager.getCommandCompletions().registerCompletion("sounds", c -> {
+            List<String> soundNames = new ArrayList<>();
+            for (Sound sound : Sound.values()) {
+                soundNames.add(sound.name());
+            }
+            return soundNames;
         });
     }
 }
