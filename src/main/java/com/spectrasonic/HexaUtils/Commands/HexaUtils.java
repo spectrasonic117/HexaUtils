@@ -22,7 +22,7 @@ public class HexaUtils extends BaseCommand {
     @Description("Shows the help menu")
     public void onHelp(CommandSender sender) {
         if (sender instanceof Player player) {
-            SoundUtils.playerSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 1.0f);
+            SoundUtils.playerSound(player, Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
         }
         sendHelpMessage(sender);
     }
@@ -36,9 +36,9 @@ public class HexaUtils extends BaseCommand {
         }
 
         MessageUtils.sendMessage((Player) sender,
-                "<gray>Version: <light_purple>%s".formatted(plugin.getDescription().getVersion()));
+                "<gray>Version: <light_purple>%s".formatted(plugin.getPluginMeta().getVersion()));
         MessageUtils.sendMessage((Player) sender,
-                "<gray>Developed by: <red>%s".formatted(plugin.getDescription().getAuthors()));
+                "<gray>Developed by: <red>%s".formatted(plugin.getPluginMeta().getAuthors()));
         MessageUtils.sendMessage((Player) sender, "<gray>A Plugin for <color:#EF3341><bold>Hexa Creators</bold>");
     }
 
@@ -72,9 +72,11 @@ public class HexaUtils extends BaseCommand {
                 "<green>/pluginhider</green> - Manage plugin visibility",
                 "<green>/nv</green> - Toggle night vision effect",
                 "<green>/fs</green> - Manage first spawn location",
+                "<green>/stf</green> <gray> play <sound <vol> <pitch></gray> - Play global sound",
                 "",
                 "<gray>=== <red>Note <gray>===",
-                "Use <green>/hexautils help</green> <gray>to see this menu."
+                "Use <green>/hexautils help</green> <gray>to see this menu.",
+                "<dark_gray>Developed by</dark_gray> <#EF3341>Spectrasonic</#EF3341>"
         };
 
         for (String message : helpMessages) {
