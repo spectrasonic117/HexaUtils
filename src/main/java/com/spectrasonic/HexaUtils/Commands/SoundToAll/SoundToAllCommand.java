@@ -15,7 +15,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import lombok.RequiredArgsConstructor;
 
-@CommandAlias("soundtoall|stf")
+@CommandAlias("soundtoall|sta")
 @RequiredArgsConstructor
 public class SoundToAllCommand extends BaseCommand {
 

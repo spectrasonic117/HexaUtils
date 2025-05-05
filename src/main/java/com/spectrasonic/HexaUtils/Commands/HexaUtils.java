@@ -72,7 +72,7 @@ public class HexaUtils extends BaseCommand {
                 "<green>/pluginhider</green> - Manage plugin visibility",
                 "<green>/nv</green> - Toggle night vision effect",
                 "<green>/fs</green> - Manage first spawn location",
-                "<green>/stf</green> <gray> play <sound <vol> <pitch></gray> - Play global sound",
+                "<green>/sta</green> <gray> play <sound <vol> <pitch></gray> - Play global sound",
                 "",
                 "<gray>=== <red>Note <gray>===",
                 "Use <green>/hexautils help</green> <gray>to see this menu.",

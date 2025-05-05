@@ -15,6 +15,8 @@ public class EventsManager {
     private final FirstJoinListener firstJoinListener;
     @Getter
     private final PlayerItemDropEvent playerItemDropEvent;
+    @Getter
+    private final PointerStickEvent pointerStickEvent;
 
     public EventsManager(Main plugin, BlockcommandManager blockcommandManager, FirstSpawnManager firstSpawnManager) {
         this.plugin = plugin;
@@ -22,6 +24,7 @@ public class EventsManager {
         this.commandListener = new CommandListener(plugin, blockcommandManager);
         this.firstJoinListener = new FirstJoinListener(firstSpawnManager);
         this.playerItemDropEvent = new PlayerItemDropEvent(plugin);
+        this.pointerStickEvent = new PointerStickEvent(plugin);
 
         registerEvents();
     }
@@ -30,6 +33,7 @@ public class EventsManager {
         registerListener(commandListener);
         registerListener(firstJoinListener);
         registerListener(playerItemDropEvent);
+        registerListener(pointerStickEvent);
     }
 
     private void registerListener(Listener listener) {

@@ -7,6 +7,7 @@ import com.spectrasonic.HexaUtils.Commands.Hider.PluginHiderCommand;
 import com.spectrasonic.HexaUtils.Commands.ItemDrop.ItemDropSwitcher;
 import com.spectrasonic.HexaUtils.Commands.NightVision.NightVisionCommand;
 import com.spectrasonic.HexaUtils.Commands.Operator.OperatorCommand;
+import com.spectrasonic.HexaUtils.Commands.PointStick.PointStick;
 import com.spectrasonic.HexaUtils.Commands.SoundToAll.SoundToAllCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.DelWarpCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.SetWarpCommand;
@@ -54,6 +55,7 @@ public class CommandManager {
         commandManager.registerCommand(new FirstSpawn(firstSpawnManager, plugin));
         commandManager.registerCommand(new ItemDropSwitcher(plugin));
         commandManager.registerCommand(new SoundToAllCommand(plugin));
+        commandManager.registerCommand(new PointStick(plugin));
     }
 
     private void registerCompletions() {
