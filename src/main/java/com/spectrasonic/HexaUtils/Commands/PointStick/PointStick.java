@@ -15,7 +15,7 @@ import org.bukkit.persistence.PersistentDataType;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@CommandAlias("pointstick")
+@CommandAlias("pointstick|ps|pstick")
 @CommandPermission("hexautils.pointstick")
 public class PointStick extends BaseCommand {
 
@@ -33,11 +33,8 @@ public class PointStick extends BaseCommand {
         ItemStack pointerStick = ItemBuilder.setMaterial("STICK")
                 .setName("<gradient:#FF5555:#FFAA00>Palo Señalador</gradient>")
                 .setLore(
-                        "<gray>Haz clic derecho para crear",
-                        "<gray>un cubo de partículas 3x3",
-                        "<gray>en el bloque que estés mirando.",
-                        "",
-                        "<italic><dark_gray>HexaUtils</dark_gray></italic>")
+                        "<gray>Clic derecho para señalar",
+                        "<gray>un lugar con particulas")
                 .setCustomModelData(1001)
                 .build();
 

@@ -73,6 +73,7 @@ public class HexaUtils extends BaseCommand {
                 "<green>/nv</green> - Toggle night vision effect",
                 "<green>/fs</green> - Manage first spawn location",
                 "<green>/sta</green> <gray> play <sound <vol> <pitch></gray> - Play global sound",
+                "<green>/pointstick</green> or <green>/ps</green> - Get a block pointing stick",
                 "",
                 "<gray>=== <red>Note <gray>===",
                 "Use <green>/hexautils help</green> <gray>to see this menu.",

@@ -53,13 +53,16 @@ public class PointerStickEvent implements Listener {
     }
 
     private void createParticleCube(Location center, int radius) {
+        // Subir la ubicación central 2 bloques para mejor visibilidad
+        Location adjustedCenter = center.clone().add(0, 2, 0);
+
         for (int x = -radius; x <= radius; x++) {
             for (int y = -radius; y <= radius; y++) {
                 for (int z = -radius; z <= radius; z++) {
                     // Solo crear partículas en los bordes del cubo
                     if (Math.abs(x) == radius || Math.abs(y) == radius || Math.abs(z) == radius) {
-                        Location particleLoc = center.clone().add(x, y, z);
-                        center.getWorld().spawnParticle(Particle.HAPPY_VILLAGER, particleLoc, 1, 0, 0, 0, 0);
+                        Location particleLoc = adjustedCenter.clone().add(x, y, z);
+                        adjustedCenter.getWorld().spawnParticle(Particle.HAPPY_VILLAGER, particleLoc, 1, 0, 0, 0, 0);
                     }
                 }
             }
