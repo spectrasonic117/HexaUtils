@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.spectrasonic"
-version = "21.13.0"
+version = "21.14.0"
 
 repositories {
     gradlePluginPortal()

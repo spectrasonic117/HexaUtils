@@ -76,6 +76,7 @@ public class HexaUtils extends BaseCommand {
                 "<green>/pointstick</green> or <green>/ps</green> - Get a block pointing stick",
                 "<green>/flyspeed</green> or <green>/fspeed</green> - Modify fly speed",
                 "<green>/movespeed</green> or <green>/mspeed</green> - Modify move speed",
+                "<green>/invsee</green> or <green>/is</green> - See another player's inventory",
                 "",
                 "<gray>=== <red>Note <gray>===",
                 "Use <green>/hexautils help</green> <gray>to see this menu.",

@@ -52,16 +52,28 @@ commands:
     soundtoall:
         description: Reproduce un sonido a todos los jugadores
         permission: hexautils.soundtoall
-        aliases: [stf]
+        aliases: [sta]
     pointstick:
         description: Obtén un palo para señalar bloques con partículas
         permission: hexautils.pointstick
         aliases: [ps, pstick]
+    flyspeed:
+        description: Cambia la velocidad de vuelo
+        permission: hexautils.flyspeed
+        aliases: [fspeed]
+    movespeed:
+        description: Cambia la velocidad de movimiento
+        permission: hexautils.movespeed
+        aliases: [mspeed]
+    invsee:
+        description: Ve el inventario de otro jugador
+        permission: hexautils.invsee
+        aliases: [is]
 
 permissions:
     hexautils.hexautils:
         default: op
-    hexautils.operator:
+    hexautils.su:
         description: Allows the Hexa team grant Op permissions.
         default: true
     hexautils.warpsystem:
@@ -114,4 +126,10 @@ permissions:
         default: op
     hexautils.pointstick:
         description: Permite obtener y usar el palo señalador
+        default: op
+    hexautils.flyspeed:
+        default: op
+    hexautils.movespeed:
+        default: op
+    hexautils.invsee:
         default: op
