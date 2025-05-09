@@ -13,6 +13,8 @@ import com.spectrasonic.HexaUtils.Commands.Warps.DelWarpCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.SetWarpCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.WarpCommand;
 import com.spectrasonic.HexaUtils.Commands.Warps.WarpSystem;
+import com.spectrasonic.HexaUtils.Commands.Speed.FlySpeedCommand;
+import com.spectrasonic.HexaUtils.Commands.Speed.MoveSpeedCommand;
 import com.spectrasonic.HexaUtils.Main;
 import com.spectrasonic.HexaUtils.Manager.BlockcommandManager;
 import com.spectrasonic.HexaUtils.Manager.FirstSpawnManager;
@@ -56,6 +58,8 @@ public class CommandManager {
         commandManager.registerCommand(new ItemDropSwitcher(plugin));
         commandManager.registerCommand(new SoundToAllCommand(plugin));
         commandManager.registerCommand(new PointStick(plugin));
+        commandManager.registerCommand(new FlySpeedCommand(plugin));
+        commandManager.registerCommand(new MoveSpeedCommand(plugin));
     }
 
     private void registerCompletions() {

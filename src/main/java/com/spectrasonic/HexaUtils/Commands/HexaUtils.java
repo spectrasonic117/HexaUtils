@@ -74,6 +74,8 @@ public class HexaUtils extends BaseCommand {
                 "<green>/fs</green> - Manage first spawn location",
                 "<green>/sta</green> <gray> play <sound <vol> <pitch></gray> - Play global sound",
                 "<green>/pointstick</green> or <green>/ps</green> - Get a block pointing stick",
+                "<green>/flyspeed</green> or <green>/fspeed</green> - Modify fly speed",
+                "<green>/movespeed</green> or <green>/mspeed</green> - Modify move speed",
                 "",
                 "<gray>=== <red>Note <gray>===",
                 "Use <green>/hexautils help</green> <gray>to see this menu.",
