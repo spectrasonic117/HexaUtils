@@ -32,7 +32,7 @@ public class Main extends JavaPlugin {
     @Getter
     private EventsManager eventsManager;
     @Getter
-    private boolean canPlayersDropItems = true;
+    private boolean canPlayersDropItems = false;
 
     @Override
     public void onEnable() {
