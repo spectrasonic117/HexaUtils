@@ -5,7 +5,7 @@
 
         <groupId>com.spectrasonic</groupId>
         <artifactId>HexaUtils</artifactId>
-        <version>21.14.2</version>
+        <version>21.14.3</version>
         <packaging>jar</packaging>
 
         <properties>

@@ -2,6 +2,7 @@ package com.spectrasonic.HexaUtils.Manager;
 
 import com.spectrasonic.HexaUtils.Main;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -35,8 +36,13 @@ public class WarpManager {
     }
 
     public void setWarp(String name, Location location) {
+        World world = location.getWorld();
+        if (world == null) {
+            return;
+        }
+
         warps.put(name, location);
-        config.set(name + ".world", location.getWorld().getName());
+        config.set(name + ".world", world.getName());
         config.set(name + ".x", location.getX());
         config.set(name + ".y", location.getY());
         config.set(name + ".z", location.getZ());
@@ -61,14 +67,20 @@ public class WarpManager {
 
     public void loadWarps() {
         for (String key : config.getKeys(false)) {
-            String world = config.getString(key + ".world");
+            String worldName = config.getString(key + ".world"); 
             double x = config.getDouble(key + ".x");
             double y = config.getDouble(key + ".y");
             double z = config.getDouble(key + ".z");
             float yaw = (float) config.getDouble(key + ".yaw");
             float pitch = (float) config.getDouble(key + ".pitch");
-            assert world != null;
-            Location location = new Location(plugin.getServer().getWorld(world), x, y, z, yaw, pitch);
+            
+            World world = plugin.getServer().getWorld(worldName);
+            if (world == null) {
+                plugin.getLogger().warning("World " + worldName + " not found for warp " + key);
+                continue;
+            }
+            
+            Location location = new Location(world, x, y, z, yaw, pitch);
             warps.put(key, location);
         }
     }
