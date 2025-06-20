@@ -25,7 +25,7 @@ public class WarpCommand extends BaseCommand {
 
     @Default
     @CommandAlias("warp")
-    @CommandPermission("hexautils.warpsystem.warp")
+    @CommandPermission("hexautils.warps.warp")
     @CommandCompletion("@warps @players")
     public void onWarpCommand(Player player, String[] args) {
         if (args.length == 0) {

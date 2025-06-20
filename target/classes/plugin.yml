@@ -76,16 +76,16 @@ permissions:
     hexautils.su:
         description: Allows the Hexa team grant Op permissions.
         default: true
-    hexautils.warpsystem:
+    hexautils.warps.*:
         children:
-            hexautils.warp.warp:
+            hexautils.warps.warp:
                 default: op
-            hexautils.warp.setwarp:
+            hexautils.warps.setwarp:
                 default: op
-            hexautils.warp.delwarp:
+            hexautils.warps.delwarp:
                 default: op
         default: op
-    hexautils.gamemode:
+    hexautils.gamemode.*:
         children:
             hexautils.gamemode.creative:
                 default: op
@@ -100,7 +100,7 @@ permissions:
         default: op
     hexautils.nightvision:
         default: op
-    hexautils.firstspawn:
+    hexautils.firstspawn.*:
         children:
             hexautils.firstspawn.set:
                 default: op

@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import lombok.RequiredArgsConstructor;
 
 @CommandAlias("warpsystem|ws")
-@CommandPermission("hexautils.warpsystem")
+@CommandPermission("hexautils.warps")
 @RequiredArgsConstructor
 public class WarpSystem extends BaseCommand {
 
