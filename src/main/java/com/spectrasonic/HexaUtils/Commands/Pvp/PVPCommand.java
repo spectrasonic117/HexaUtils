@@ -14,29 +14,27 @@ import org.bukkit.command.CommandSender;
 public class PVPCommand extends BaseCommand {
 
     @Subcommand("on")
-    @CommandPermission("hexautils.pvp.toggle")
-    @Description("Activa el PVP en todos los mundos")
+    @CommandPermission("hexautils.pvp")
     @CommandCompletion("true")
     public void onEnable(CommandSender sender) {
         setPVPForAllWorlds(true);
         MessageUtils.sendBroadcastMessage(
-                "<red><bold>⚔️ PVP ACTIVADO</bold></red> <gray>- El combate entre jugadores está ahora <red><bold>HABILITADO</bold></red> en todos los mundos!");
-        SoundUtils.broadcastPlayerSound(Sound.ENTITY_ELDER_GUARDIAN_CURSE, 1.0f, 1.0f);
+                "<red><bold>⚔ PVP ACTIVADO</bold></red> <gray>");
+        SoundUtils.broadcastPlayerSound(Sound.BLOCK_BEACON_ACTIVATE, 1.0f, 1.0f);
         MessageUtils.sendMessage(sender,
-                "PVP <red><bold>ACTIVADO</bold></red> exitosamente en todos los mundos.");
+                "PVP <red><bold>ACTIVADO</bold></red> en todos los mundos.");
     }
 
     @Subcommand("off")
-    @CommandPermission("hexautils.pvp.toggle")
-    @Description("Desactiva el PVP en todos los mundos")
+    @CommandPermission("hexautils.pvp")
     @CommandCompletion("false")
     public void onDisable(CommandSender sender) {
         setPVPForAllWorlds(false);
         MessageUtils.sendBroadcastMessage(
-                "<green><bold>🕊️ PVP DESACTIVADO</bold></green> <gray>- El combate entre jugadores está ahora <green><bold>DESHABILITADO</bold></green> en todos los mundos!");
+                "<green><bold>🕊 PVP DESACTIVADO</bold></green> <gray>");
         SoundUtils.broadcastPlayerSound(Sound.BLOCK_BEACON_DEACTIVATE, 1.0f, 1.0f);
         MessageUtils.sendMessage(sender,
-                "PVP <green><bold>DESACTIVADO</bold></green> exitosamente en todos los mundos.");
+                "PVP <green><bold>DESACTIVADO</bold></green> en todos los mundos.");
     }
 
     @Default
