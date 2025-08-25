@@ -77,6 +77,7 @@ public class HexaUtils extends BaseCommand {
                 "<green>/flyspeed</green> or <green>/fspeed</green> - Modify fly speed",
                 "<green>/movespeed</green> or <green>/mspeed</green> - Modify move speed",
                 "<green>/invsee</green> or <green>/is</green> - See another player's inventory",
+                "<green>/pvp</green> <gray>on|off</gray> - Toggle PVP",
                 "",
                 "<gray>=== <red>Note <gray>===",
                 "Use <green>/hexautils help</green> <gray>to see this menu.",

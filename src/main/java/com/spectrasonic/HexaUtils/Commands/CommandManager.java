@@ -16,6 +16,7 @@ import com.spectrasonic.HexaUtils.Commands.Warps.WarpSystem;
 import com.spectrasonic.HexaUtils.Commands.Speed.FlySpeedCommand;
 import com.spectrasonic.HexaUtils.Commands.Speed.MoveSpeedCommand;
 import com.spectrasonic.HexaUtils.Commands.InvSee.InvSeeCommand;
+import com.spectrasonic.HexaUtils.Commands.Pvp.PVPCommand;
 import com.spectrasonic.HexaUtils.Main;
 import com.spectrasonic.HexaUtils.Manager.BlockcommandManager;
 import com.spectrasonic.HexaUtils.Manager.FirstSpawnManager;
@@ -62,6 +63,7 @@ public class CommandManager {
         commandManager.registerCommand(new FlySpeedCommand(plugin));
         commandManager.registerCommand(new MoveSpeedCommand(plugin));
         commandManager.registerCommand(new InvSeeCommand(plugin));
+        commandManager.registerCommand(new PVPCommand());
     }
 
     private void registerCompletions() {

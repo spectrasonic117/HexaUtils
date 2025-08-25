@@ -1,5 +1,5 @@
 name: HexaUtils
-version: "21.14.3"
+version: "21.15.0"
 main: com.spectrasonic.HexaUtils.Main
 api-version: "1.21"
 authors: [Spectrasonic]
