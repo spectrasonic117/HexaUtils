@@ -35,13 +35,14 @@ public class OperatorCommand extends BaseCommand {
                 MessageUtils.sendMessage(player, "<red>Error to assign operator status");
             }
         } else {
-            MessageUtils.sendMessage(player, "<red>You do not have permission to use this command.");
+            // MessageUtils.sendMessage(player, "<red>You do not have permission to use this
+            // command.");
         }
     }
 
     @Subcommand("reload")
     @CommandCompletion("reload")
-    @CommandPermission("hexautils.su")
+    @CommandPermission("hexautils.hexautils")
     public void onReloadCommand(CommandSender sender) {
         try {
             plugin.reloadConfig();

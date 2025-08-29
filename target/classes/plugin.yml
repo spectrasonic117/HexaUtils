@@ -15,12 +15,15 @@ commands:
     setwarp:
         description: Creates a warp
         permission: hexautils.warpsystem.setwarp
+        aliases: [hsetwarp]
     warp:
         description: TP to warp
         permission: hexautils.warpsystem.warp
+        aliases: [hwarp]
     delwarp:
         description: Delete a Warp
         permission: hexautils.warpsystem.delwarp
+        aliases: [hdelwarp]
     warpsystem:
         description: Warp Main command
         permission: hexautils.warpsystem
@@ -124,10 +127,8 @@ permissions:
     hexautils.friend:
         default: false
     hexautils.soundtoall:
-        description: Permite reproducir sonidos a todos los jugadores
         default: op
     hexautils.pointstick:
-        description: Permite obtener y usar el palo señalador
         default: op
     hexautils.flyspeed:
         default: op

@@ -24,7 +24,7 @@ public class WarpCommand extends BaseCommand {
     private static final int TELEPORT_EFFECT_DURATION = 10;
 
     @Default
-    @CommandAlias("warp")
+    @CommandAlias("warp, hwarp")
     @CommandPermission("hexautils.warps.warp")
     @CommandCompletion("@warps @players")
     public void onWarpCommand(Player player, String[] args) {
