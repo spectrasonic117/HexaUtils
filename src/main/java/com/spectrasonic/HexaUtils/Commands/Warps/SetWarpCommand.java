@@ -18,9 +18,9 @@ public class SetWarpCommand extends BaseCommand {
     private final Main plugin;
 
     @Default
-    @CommandAlias("setwarp, hsetwarp")
+    @CommandAlias("setwarp|hsetwarp")
     @CommandPermission("hexautils.warps.setwarp")
-    @CommandCompletion("@warps")
+    // @CommandCompletion("<warpname>")
     public void onSetWarpCommand(Player player, String[] args) {
         if (args.length == 1) {
             String warpName = args[0];

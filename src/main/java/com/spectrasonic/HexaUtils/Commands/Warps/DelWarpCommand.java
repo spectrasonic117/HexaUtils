@@ -16,7 +16,7 @@ public class DelWarpCommand extends BaseCommand {
     private final Main plugin;
 
     @Default
-    @CommandAlias("delwarp, hdelwarp")
+    @CommandAlias("delwarp|hdelwarp")
     @CommandPermission("hexautils.warps.delwarp")
     @CommandCompletion("@warps")
     public void onDelWarpCommand(Player player, String[] args) {
